@@ -1,6 +1,6 @@
 ---
 title: "Worklog Tuần 5"
-date: 2024-01-01
+date: 2026-05-16
 weight: 1
 chapter: false
 pre: " <b> 1.5. </b> "
@@ -9,51 +9,101 @@ pre: " <b> 1.5. </b> "
 ⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
 {{% /notice %}}
 
+### Mục tiêu tuần 5 (16/05 - 22/05/2026):
 
-### Mục tiêu tuần 5:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Hiểu mục đích của AWS Web Application Firewall (AWS WAF) trong việc bảo vệ web application
+* Triển khai và kiểm thử ứng dụng mẫu OWASP Juice Shop thông qua Amazon CloudFront
+* Tạo Web ACL và liên kết Web ACL với CloudFront distribution
+* Dùng AWS managed rule groups để chặn các tấn công phổ biến như XSS và SQL injection
+* Tạo custom WAF rules cho request headers, query strings và logic matching phức tạp hơn
+* Theo dõi request thông qua sampled requests, CloudWatch metrics và WAF logging
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Giai đoạn | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 16/05 | - Đọc tổng quan AWS WAF workshop <br> - Hiểu Web ACLs, rule groups, rule actions và tích hợp CloudFront <br> - Chuẩn bị môi trường workshop | 16/05/2026 | 16/05/2026 | <https://000026.awsstudygroup.com/vi/> |
+| 17/05 | - Triển khai ứng dụng mẫu OWASP Juice Shop <br> - Kiểm tra truy cập thông qua CloudFront distribution domain <br> - Xác nhận ứng dụng hoạt động trước khi bật WAF protection | 17/05/2026 | 17/05/2026 | Sample web app section |
+| 18/05 | - Tạo Web ACL tên `waf-workshop-juice-shop` <br> - Associate Web ACL với CloudFront distribution <br> - Thêm AWS managed rule groups: Core Rule Set và SQL Database | 18/05/2026 | 18/05/2026 | Web ACL managed rules section |
+| 19/05 | - Kiểm thử payload XSS và SQL injection bằng `curl` <br> - Xác nhận malicious requests trả về `403 Forbidden` <br> - Review cách managed rules bảo vệ application | 19/05/2026 | 19/05/2026 | Web ACL managed rules section |
+| 20/05 | - Tạo custom rule `MyCustomRule-X-TomatoAttack` <br> - Chặn request có header `X-TomatoAttack` <br> - Review blocked requests trong sampled requests | 20/05/2026 | 20/05/2026 | Custom Rule section |
+| 21/05 | - Thực hành tạo advanced custom rule bằng JSON <br> - Dùng logic AND/OR cho header và query-string matching <br> - Kiểm thử rule với action Count và Block | 21/05/2026 | 21/05/2026 | Advanced Custom Rule and Testing sections |
+| 22/05 | - Bật WAF request logging thông qua Kinesis Data Firehose và S3 <br> - Redact sensitive fields như `Cookie` <br> - Tạo test requests và ghi nhận kết quả | 22/05/2026 | 22/05/2026 | Logging section |
 
 ### Kết quả đạt được tuần 5:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Ứng dụng mẫu:**
+  * Triển khai OWASP Juice Shop làm mục tiêu kiểm thử
+  * Truy cập ứng dụng thông qua CloudFront distribution URL
+  * Xác nhận ứng dụng hoạt động trước khi bật các WAF rules
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+* **Web ACL và Managed Rules:**
+  * Tạo Web ACL cho ứng dụng Juice Shop
+  * Associate Web ACL với CloudFront distribution
+  * Thêm AWS managed rule groups để phát hiện và chặn các threat phổ biến
+  * Xác thực khả năng bảo vệ trước request XSS và SQL injection
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
+* **Triển khai Custom Rule:**
+  * Tạo custom rule chặn request có header `X-TomatoAttack`
+  * Kiểm thử custom rule bằng `curl`
+  * Xác minh request khớp rule bị block và xuất hiện trong sampled requests
 
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
+* **Advanced Rule Logic:**
+  * Thực hành định nghĩa rule trực tiếp bằng JSON
+  * Dùng logical statements như AND và OR cho điều kiện matching phức tạp
+  * Kiểm thử kết hợp query parameter và header trước khi áp dụng blocking chặt hơn
 
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
+* **Logging và Monitoring:**
+  * Review sampled requests để xác định rule nào đã block từng request
+  * Dùng khái niệm CloudWatch/WAF metrics để kiểm tra hành vi rule
+  * Thực hành request logging qua Kinesis Data Firehose và S3
+  * Áp dụng redaction cho sensitive fields như cookies
 
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
+### Minh chứng và phân tích:
 
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
+* **OWASP Juice Shop qua CloudFront:** Ứng dụng mẫu đã được triển khai và truy cập thành công thông qua CloudFront distribution. Điều này xác nhận application hoạt động trước khi kiểm thử WAF rules.
 
+{{< image src="images/worklog/week5_juice_shop_cloudfront.jpg" alt="OWASP Juice Shop through CloudFront" >}}
 
+* **Kiểm thử managed rules:** Payload XSS và SQL injection được gửi bằng `curl`. Cả hai request đều trả về `403 Forbidden`, cho thấy managed rule groups đã chặn malicious traffic.
+
+{{< image src="images/worklog/week5_waf_block_test.jpg" alt="AWS WAF blocks XSS and SQL injection test requests" >}}
+
+* **Review sampled requests:** Màn hình sampled requests của WAF hiển thị các request bị block bởi AWS managed rules và custom rule `MyCustomRule-X-TomatoAttack`. Phần này giúp xác định rule nào xử lý từng request.
+
+{{< image src="images/worklog/week5_waf_sampled_requests.jpg" alt="AWS WAF sampled requests showing blocked rules" >}}
+
+* **Tạo request để kiểm thử logging:** Các request test được tạo từ command line sau khi bật logging. Bước này hỗ trợ kiểm tra request logs và xác nhận hoạt động WAF có thể được audit sau khi traffic được xử lý.
+
+{{< image src="images/worklog/week5_waf_logging_test.jpg" alt="AWS WAF logging test request generation" >}}
+
+### Phân tích báo cáo AWS tuần 5:
+
+* **Mức phù hợp của kiến trúc:** AWS WAF được đặt trước application thông qua CloudFront, phù hợp để lọc traffic trước khi request tới origin. Web ACL trở thành lớp policy trung tâm cho managed rules, custom rules, sampled request inspection, metrics và logging.
+
+* **Giá trị của managed rules:** AWS managed rule groups hữu ích để thêm lớp bảo vệ cơ bản trước các mẫu tấn công phổ biến. Kết quả `403 Forbidden` xác nhận Core Rule Set và SQL-related protections hoạt động với payload đã kiểm thử.
+
+* **Giá trị của custom rules:** Custom rules cần thiết khi application có dấu hiệu threat theo ngữ cảnh riêng, ví dụ header `X-TomatoAttack` trong workshop. Điều này cho thấy WAF không chỉ bảo vệ theo rule chung mà còn có thể tùy biến theo hành vi ứng dụng.
+
+* **Cách kiểm thử rule:** Dùng `Count` trước khi `Block` là cách triển khai an toàn hơn vì giảm nguy cơ chặn nhầm user hợp lệ. Sampled requests và metrics giúp xác thực rule có match đúng traffic mong muốn hay không.
+
+* **Logging và quyền riêng tư:** WAF logging tăng khả năng audit vì log thể hiện request details, rule actions và hành vi matching. Redact sensitive fields như `Cookie` là cần thiết để giảm rủi ro lộ dữ liệu riêng tư trong logs.
+
+### Những bài học quan trọng:
+
+1. **Web ACL là ranh giới policy** - WAF protection được tổ chức thông qua Web ACL gắn với tài nguyên như CloudFront distribution.
+2. **Managed rules giúp tạo baseline nhanh** - AWS managed rule groups hỗ trợ chặn các nhóm tấn công phổ biến mà không cần tự viết toàn bộ rules.
+3. **Custom rules xử lý threat theo ngữ cảnh ứng dụng** - Matching header và query string giúp WAF thích ứng với hành vi cụ thể của application.
+4. **Count mode giúp rollout an toàn hơn** - Kiểm thử bằng Count giúp đánh giá rule trước khi chuyển sang Block.
+5. **Logging cần thiết cho audit** - Sampled requests và WAF logs giúp giải thích request nào bị chặn và lý do bị chặn.
+
+### Tài liệu & Công cụ sử dụng:
+
+* AWS Web Application Firewall Workshop: <https://000026.awsstudygroup.com/vi/>
+* AWS WAF Console
+* Amazon CloudFront
+* OWASP Juice Shop
+* AWS Managed Rules
+* Amazon CloudWatch Metrics
+* Amazon Kinesis Data Firehose
+* Amazon S3

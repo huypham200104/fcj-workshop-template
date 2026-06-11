@@ -1,0 +1,8 @@
+{{- $src := .Get "src" -}}
+{{- $alt := .Get "alt" | default "" -}}
+{{- $url := $src | relURL -}}
+<p>
+  <a href="{{ $url }}">
+    <img src="{{ $url }}" alt="{{ $alt }}">
+  </a>
+</p>
