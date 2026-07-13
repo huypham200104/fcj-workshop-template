@@ -1,14 +1,10 @@
 ---
 title: "Week 5 Worklog"
 date: 2026-05-16
-weight: 1
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 5 Objectives (May 16 - May 22, 2026):
 
 * Understand the purpose of AWS Web Application Firewall (AWS WAF) in protecting web applications

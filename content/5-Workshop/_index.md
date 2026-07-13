@@ -1,31 +1,32 @@
 ---
 title: "Workshop"
-date: 2024-01-01
+date: 2026-07-10
 weight: 5
 chapter: false
 pre: " <b> 5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
-# Secure Hybrid Access to S3 using VPC Endpoints
+# AWS Helpdesk Portal Workshop
 
 #### Overview
 
-**AWS PrivateLink** provides private connectivity to AWS services from VPCs and your on-premises networks, without exposing your traffic to the Public Internet.
+In this workshop, you will manually build **AWS Helpdesk Portal**, a serverless IT support ticket management system on AWS. Users can sign in, create tickets, upload attachments, track ticket status, and receive email notifications. IT staff can review, assign, update, and close tickets through the same portal.
 
-In this lab, you will learn how to create, configure, and test VPC endpoints that enable your workloads to reach AWS services without traversing the Public Internet.
+The workshop follows the architecture presented by the team:
 
-You will create two types of endpoints to access Amazon S3: a Gateway VPC endpoint, and an Interface VPC endpoint. These two types of VPC endpoints offer different benefits depending on if you are accessing Amazon S3 from the cloud or your on-premises location
-+ **Gateway** - Create a gateway endpoint to send traffic to Amazon S3 or DynamoDB using private IP addresses.You route traffic from your VPC to the gateway endpoint using route tables.
-+ **Interface** - Create an interface endpoint to send traffic to endpoint services that use a Network Load Balancer to distribute traffic. Traffic destined for the endpoint service is resolved using DNS.
++ **Frontend:** Amazon S3, Amazon CloudFront, AWS WAF
++ **Authentication:** Amazon Cognito and JWT authorization through Amazon API Gateway
++ **Backend:** Amazon API Gateway, AWS Lambda, Amazon DynamoDB, Amazon S3
++ **Security and resilience:** AWS KMS, AWS Backup
++ **Notification:** Amazon SQS FIFO, SQS DLQ, AWS Lambda Notification Worker and Amazon SES
++ **Monitoring:** Amazon CloudWatch and Amazon SNS
++ **CI/CD:** AWS CodeCommit, AWS CodeBuild, and AWS CodePipeline
 
 #### Content
 
-1. [Workshop overview](5.1-Workshop-overview)
-2. [Prerequiste](5.2-Prerequiste/)
-3. [Access S3 from VPC](5.3-S3-vpc/)
-4. [Access S3 from On-premises](5.4-S3-onprem/)
-5. [VPC Endpoint Policies (Bonus)](5.5-Policy/)
-6. [Clean up](5.6-Cleanup/)
+1. [Workshop overview](5.1-workshop-overview/)
+2. [Prerequisites](5.2-prerequisites/)
+3. [Implementation steps](5.3-implementation-steps/)
+4. [Validation](5.4-validation/)
+5. [Clean up](5.5-cleanup/)
+6. [Reflection](5.6-reflection/)

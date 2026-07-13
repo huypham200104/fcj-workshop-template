@@ -5,111 +5,72 @@ weight: 2
 chapter: false
 pre: " <b> 2. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Note:** The information below is for reference purposes only. Please **do not copy verbatim** for your report, including this warning.
-{{% /notice %}}
 
 In this section, you need to summarize the contents of the workshop that you **plan** to conduct.
 
-# IoT Weather Platform for Lab Research
-## A Unified AWS Serverless Solution for Real-Time Weather Monitoring
+# PROJECT EXECUTIVE SUMMARY: AWS HELPDESK PORTAL
+### **System Architecture:** Serverless Architecture on Amazon Web Services (AWS)
+
+---
 
 ### 1. Executive Summary
-The IoT Weather Platform is designed for the ITea Lab team in Ho Chi Minh City to enhance weather data collection and analysis. It supports up to 5 weather stations, with potential scalability to 10-15, utilizing Raspberry Pi edge devices with ESP32 sensors to transmit data via MQTT. The platform leverages AWS Serverless services to deliver real-time monitoring, predictive analytics, and cost efficiency, with access restricted to 5 lab members via Amazon Cognito.
+The **AWS Helpdesk Portal** is a comprehensive IT support request management system (IT Helpdesk) designed and deployed entirely on the Amazon Web Services (AWS) cloud platform using a **Serverless** architectural model. The core objective of the system is to automate the process of receiving, classifying, and resolving internal IT incidents while optimizing the interaction workflow between end-users (Users) and the technical support team (Staff). By fully leveraging managed services from AWS, the system achieves highly flexible auto-scaling, ensures high availability, enforces strict security, and maximizes operational cost efficiency (paying only when processing requests).
+
+---
 
 ### 2. Problem Statement
-### What’s the Problem?
-Current weather stations require manual data collection, becoming unmanageable with multiple units. There is no centralized system for real-time data or analytics, and third-party platforms are costly and overly complex.
+Traditional support request management systems in many organizations today often face significant drawbacks:
+* **Fragmented and Manual Processes:** Requests sent through multiple channels (Email, Chat, word-of-mouth) are easily misplaced, lack synchronization, and are difficult to track in terms of status.
+* **High Fixed Infrastructure Costs:** Maintaining server systems running 24/7 leads to substantial resource waste during off-peak hours or weekends.
+* **Inflexibility under Sudden Traffic Spikes:** Systems are prone to bottlenecks or overloads when wide-area system failures occur, causing a massive influx of tickets at once.
+* **Information Security Risks:** Internal incident data or personal staff information that is not properly encrypted is highly vulnerable to data breaches.
 
-### The Solution
-The platform uses AWS IoT Core to ingest MQTT data, AWS Lambda and API Gateway for processing, Amazon S3 for storage (including a data lake), and AWS Glue Crawlers and ETL jobs to extract, transform, and load data from the S3 data lake to another S3 bucket for analysis. AWS Amplify with Next.js provides the web interface, and Amazon Cognito ensures secure access. Similar to Thingsboard and CoreIoT, users can register new devices and manage connections, though this platform operates on a smaller scale and is designed for private use. Key features include real-time dashboards, trend analysis, and low operational costs.
-
-### Benefits and Return on Investment
-The solution establishes a foundational resource for lab members to develop a larger IoT platform, serving as a study resource, and provides a data foundation for AI enthusiasts for model training or analysis. It reduces manual reporting for each station via a centralized platform, simplifying management and maintenance, and improves data reliability. Monthly costs are $0.66 USD per the AWS Pricing Calculator, with a 12-month total of $7.92 USD. All IoT equipment costs are covered by the existing weather station setup, eliminating additional development expenses. The break-even period of 6-12 months is achieved through significant time savings from reduced manual work.
+---
 
 ### 3. Solution Architecture
-The platform employs a serverless AWS architecture to manage data from 5 Raspberry Pi-based stations, scalable to 15. Data is ingested via AWS IoT Core, stored in an S3 data lake, and processed by AWS Glue Crawlers and ETL jobs to transform and load it into another S3 bucket for analysis. Lambda and API Gateway handle additional processing, while Amplify with Next.js hosts the dashboard, secured by Cognito. The architecture is detailed below:
+The system is designed following an Event-Driven Architecture, divided into clear-cut layers:
+1. **Frontend & Edge Processing Layer:** Static source code (HTML/ReactJS) is securely stored in **Amazon S3** and distributed through **Amazon CloudFront** edge locations to optimize global response speeds. All traffic passes through **AWS WAF** to prevent common web exploits (SQL Injection, XSS).
+2. **Authentication Layer:** Utilizes **Amazon Cognito** to manage user identities and issue JWT Tokens upon successful login.
+3. **Compute & API Layer:** **Amazon API Gateway** acts as the entry point for API calls, verifies the validity of JWT Tokens, and routes requests directly to **AWS Lambda (Ticket Handler)** to execute business logic.
+4. **Data & Storage Layer:** Ticket metadata (ID, status, description) is stored in the **Amazon DynamoDB** NoSQL database. File attachments and screenshots are uploaded directly to **Amazon S3 (Attachment Storage)**.
 
-![IoT Weather Station Architecture](/images/2-Proposal/edge_architecture.jpeg)
-
-![IoT Weather Platform Architecture](/images/2-Proposal/platform_architecture.jpeg)
-
-### AWS Services Used
-- **AWS IoT Core**: Ingests MQTT data from 5 stations, scalable to 15.
-- **AWS Lambda**: Processes data and triggers Glue jobs (two functions).
-- **Amazon API Gateway**: Facilitates web app communication.
-- **Amazon S3**: Stores raw data in a data lake and processed outputs (two buckets).
-- **AWS Glue**: Crawlers catalog data, and ETL jobs transform and load it.
-- **AWS Amplify**: Hosts the Next.js web interface.
-- **Amazon Cognito**: Secures access for lab users.
-
-### Component Design
-- **Edge Devices**: Raspberry Pi collects and filters sensor data, sending it to IoT Core.
-- **Data Ingestion**: AWS IoT Core receives MQTT messages from the edge devices.
-- **Data Storage**: Raw data is stored in an S3 data lake; processed data is stored in another S3 bucket.
-- **Data Processing**: AWS Glue Crawlers catalog the data, and ETL jobs transform it for analysis.
-- **Web Interface**: AWS Amplify hosts a Next.js app for real-time dashboards and analytics.
-- **User Management**: Amazon Cognito manages user access, allowing up to 5 active accounts.
+---
 
 ### 4. Technical Implementation
-**Implementation Phases**
-This project has two parts—setting up weather edge stations and building the weather platform—each following 4 phases:
-- Build Theory and Draw Architecture: Research Raspberry Pi setup with ESP32 sensors and design the AWS serverless architecture (1 month pre-internship)
-- Calculate Price and Check Practicality: Use AWS Pricing Calculator to estimate costs and adjust if needed (Month 1).
-- Fix Architecture for Cost or Solution Fit: Tweak the design (e.g., optimize Lambda with Next.js) to stay cost-effective and usable (Month 2).
-- Develop, Test, and Deploy: Code the Raspberry Pi setup, AWS services with CDK/SDK, and Next.js app, then test and release to production (Months 2-3).
+* **Data Security:** All data-at-rest in DynamoDB and S3 is automatically encrypted using customer master keys managed in **AWS KMS**. **S3 Versioning** is enabled to prevent accidental data overwrites or deletions.
+* **Reliability & Redundancy:** **Amazon SQS FIFO** queues guarantee data integrity and strict first-in-first-out sequencing for notification messages, coupled with an **SQS Dead Letter Queue (DLQ)** to isolate corrupted messages for developer inspection. Enabling **Point-in-Time Recovery (PITR)** on DynamoDB alongside **AWS Backup** ensures disaster recovery back to any specific second.
+* **Intelligent Monitoring:** The system leverages **Amazon CloudWatch** to monitor real-time performance and centralize logs from Lambda functions. When metrics exceed predefined thresholds, **Amazon SNS** triggers alert notifications directly to DevOps engineers.
+* **CI/CD Automation:** The software development lifecycle is fully automated using **AWS CodeCommit** for source control, **AWS CodeBuild** for automated compilation, and **AWS CodePipeline** for seamless, automated deployment to S3 and Lambda, minimizing human error.
 
-**Technical Requirements**
-- Weather Edge Station: Sensors (temperature, humidity, rainfall, wind speed), a microcontroller (ESP32), and a Raspberry Pi as the edge device. Raspberry Pi runs Raspbian, handles Docker for filtering, and sends 1 MB/day per station via MQTT over Wi-Fi.
-- Weather Platform: Practical knowledge of AWS Amplify (hosting Next.js), Lambda (minimal use due to Next.js), AWS Glue (ETL), S3 (two buckets), IoT Core (gateway and rules), and Cognito (5 users). Use AWS CDK/SDK to code interactions (e.g., IoT Core rules to S3). Next.js reduces Lambda workload for the fullstack web app.
+---
 
-### 5. Timeline & Milestones
-**Project Timeline**
-- Pre-Internship (Month 0): 1 month for planning and old station review.
-- Internship (Months 1-3): 3 months.
-    - Month 1: Study AWS and upgrade hardware.
-    - Month 2: Design and adjust architecture.
-    - Month 3: Implement, test, and launch.
-- Post-Launch: Up to 1 year for research.
+### 5. Budget Estimation
+Due to the pay-as-you-go nature of Serverless architecture, operational costs scale proportionally with actual request volume. Below is the estimated monthly cost for an average workload of **50,000 Tickets/month** (equivalent to roughly 1,000,000 API requests):
 
-### 6. Budget Estimation
-You can find the budget estimation on the [AWS Pricing Calculator](https://calculator.aws/#/estimate?id=621f38b12a1ef026842ba2ddfe46ff936ed4ab01).  
-Or you can download the [Budget Estimation File](../attachments/budget_estimation.pdf).
+| AWS Service | Primary Cost Components | Estimated Monthly Cost |
+| :--- | :--- | :---: |
+| **AWS Lambda** | ~500,000 executions (Handler + Worker), avg. duration ~200ms | $1.00 |
+| **Amazon API Gateway** | ~1,000,000 REST requests | $3.50 |
+| **Amazon DynamoDB** | 10 GB storage + Read/Write requests + PITR | $3.50 |
+| **Amazon S3** | 50 GB of attachments and Frontend hosting | $1.25 |
+| **Amazon CloudFront & WAF** | Data Transfer Out + WAF Web ACL Rules | $12.00 |
+| **Other Services** | AWS KMS, AWS Backup, Amazon SQS, CloudWatch, SES (Email) | $5.00 |
+| **TOTAL** | **Estimated Monthly Infrastructure Cost** | **~$26.25 / month** |
 
-### Infrastructure Costs
-- AWS Services:
-    - AWS Lambda: $0.00/month (1,000 requests, 512 MB storage).
-    - S3 Standard: $0.15/month (6 GB, 2,100 requests, 1 GB scanned).
-    - Data Transfer: $0.02/month (1 GB inbound, 1 GB outbound).
-    - AWS Amplify: $0.35/month (256 MB, 500 ms requests).
-    - Amazon API Gateway: $0.01/month (2,000 requests).
-    - AWS Glue ETL Jobs: $0.02/month (2 DPUs).
-    - AWS Glue Crawlers: $0.07/month (1 crawler).
-    - MQTT (IoT Core): $0.08/month (5 devices, 45,000 messages).
+---
 
-Total: $0.7/month, $8.40/12 months
+### 6. Risk Assessment
+> 💡 **Risk 1: AWS Lambda Cold Starts**
+> * **Description:** When the system has no incoming requests for an extended period, the first Lambda invocation takes 1-3 seconds to initialize the environment, causing slight latency for the user.
+> * **Mitigation:** Optimize deployment package size, use fast-booting languages (Node.js), and configure *Provisioned Concurrency* for core API paths if necessary.
 
-- Hardware: $265 one-time (Raspberry Pi 5 and sensors).
+> 💡 **Risk 2: Uncontrolled Billing Spikes**
+> * **Description:** The infinite auto-scaling nature of Serverless could be exploited during DDoS attacks or infinite code loops, leading to unexpected surges in the AWS bill.
+> * **Mitigation:** Implement *Rate Limiting* on API Gateway, set *Concurrency Limits* on Lambda functions, and set up an **AWS Budgets** threshold alert (sending email alerts as soon as estimated costs touch $30).
 
-### 7. Risk Assessment
-#### Risk Matrix
-- Network Outages: Medium impact, medium probability.
-- Sensor Failures: High impact, low probability.
-- Cost Overruns: Medium impact, low probability.
+---
 
-#### Mitigation Strategies
-- Network: Local storage on Raspberry Pi with Docker.
-- Sensors: Regular checks and spares.
-- Cost: AWS budget alerts and optimization.
-
-#### Contingency Plans
-- Revert to manual methods if AWS fails.
-- Use CloudFormation for cost-related rollbacks.
-
-### 8. Expected Outcomes
-#### Technical Improvements: 
-Real-time data and analytics replace manual processes.  
-Scalable to 10-15 stations.
-#### Long-term Value
-1-year data foundation for AI research.  
-Reusable for future projects.
+### 7. Expected Outcomes
+* **40% Reduction in Mean Time to Resolution (MTTR):** Automating distribution workflows via SQS queues and SES alerts helps IT engineers acknowledge and resolve tickets much faster.
+* **Over 70% Infrastructure Cost Savings:** Completely eliminates the overhead of idle virtual servers compared to traditional cloud server architectures.
+* **High Availability & Fault Tolerance:** The infrastructure naturally inherits Multi-AZ (Availability Zone) deployment from AWS Serverless primitives, ensuring the portal remains resilient and available at a 99.99% SLA.

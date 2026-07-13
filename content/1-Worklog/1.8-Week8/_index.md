@@ -1,57 +1,43 @@
 ---
 title: "Week 8 Worklog"
-date: 2024-01-01
-weight: 1
+date: 2026-06-06
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+### Week 8 Objectives (June 6 - June 12, 2026):
 
-
-### Week 8 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Continue the FCJ Management application deployment by creating an Auto Scaling Group (ASG)
+* Configure Dynamic Scaling Policies based on CPU Utilization
+* Explore Predictive Scaling using previously uploaded custom CloudWatch metrics
+* Stress test the application to observe scaling in and scaling out behaviors
+* Analyze scaling activity logs and understand the ASG lifecycle hooks
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Period | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| June 6 | - Review ASG concepts and integration with Application Load Balancer <br> - Resolve unhealthy target issues from the previous week | 06/06/2026 | 06/06/2026 | ASG Workshop Documentation |
+| June 7 | - Create the Auto Scaling Group `FCJ-Management-ASG` <br> - Attach the ASG to the existing Target Group and ALB <br> - Set minimum, maximum, and desired capacity | 06/07/2026 | 06/07/2026 | ASG Creation section |
+| June 8 | - Configure Dynamic Target Tracking Scaling Policy <br> - Set target CPU utilization to 50% for scale-out triggers | 06/08/2026 | 06/08/2026 | Dynamic Scaling section |
+| June 9 | - Configure Predictive Scaling Policy using custom CloudWatch metrics <br> - Analyze historical data patterns for capacity forecasting | 06/09/2026 | 06/09/2026 | Predictive Scaling section |
+| June 10 | - Perform stress testing using tools like Apache JMeter or AWS Fault Injection Simulator <br> - Monitor CloudWatch alarms triggering scale-out actions | 06/10/2026 | 06/10/2026 | Stress Testing section |
+| June 11 | - Observe scale-in behavior after load decreases <br> - Verify application availability during scaling operations | 06/11/2026 | 06/11/2026 | Scaling Observation |
+| June 12 | - Clean up resources (EC2, ASG, ALB, RDS, VPC) to prevent unexpected charges <br> - Summarize findings | 06/12/2026 | 06/12/2026 | Workshop Cleanup |
 
 ### Week 8 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Auto Scaling Group Configuration:**
+  * Successfully created and attached an Auto Scaling Group to the Application Load Balancer.
+  * Configured Target Tracking scaling policies to dynamically adjust instance count based on traffic.
+* **Predictive Scaling:**
+  * Implemented predictive scaling to proactively launch instances ahead of anticipated traffic spikes.
+* **Testing and Monitoring:**
+  * Verified ASG functionality under load.
+  * Monitored scaling activities and health checks to ensure high availability of the FCJ Management application.
 
-* Successfully created and configured an AWS Free Tier account.
+### Key Learnings:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+1. **ASG and ALB Integration:** Auto Scaling Groups work seamlessly with Load Balancers to distribute traffic to new instances automatically.
+2. **Scaling Policies:** Choosing the right scaling policy (Dynamic vs. Predictive) depends on the workload pattern. Predictive scaling is excellent for predictable cyclical traffic.
+3. **Cost Optimization:** ASG ensures you only run the instances you need, optimizing costs while maintaining performance.

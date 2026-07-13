@@ -1,124 +1,119 @@
 ---
-title: "Event 2"
-date: 2024-01-01
-weight: 1
+title: "Sự kiện 2"
+date: 2024-05-23
+weight: 2
 chapter: false
 pre: " <b> 4.2. </b> "
 ---
-
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
-# Bài thu hoạch “GenAI-powered App-DB Modernization workshop”
+# Bài thu hoạch “Conference Call”
+| Thông tin | Chi tiết |
+|---|---|
+| Ngày | 23/05/2026 |
+| Địa điểm | Tầng 26, Tòa nhà Bitexco Financial Tower, Phường Sài Gòn, TP.Hồ Chí Minh |
+| Vai trò | Người tham dự |
 
 ### Mục Đích Của Sự Kiện
 
-- Chia sẻ best practices trong thiết kế ứng dụng hiện đại
-- Giới thiệu phương pháp DDD và event-driven architecture
-- Hướng dẫn lựa chọn compute services phù hợp
-- Giới thiệu công cụ AI hỗ trợ development lifecycle
+- **Chuyển dịch tư duy làm việc với AI từ "bề nổi" sang "thực chiến":** Sự kiện nhằm giúp người tham gia hiểu rằng AI chỉ thực sự hữu ích khi có ngữ cảnh (Context) và kiến trúc đúng (như mô hình Multi-Agent hay việc hiểu tính không xác định của LLM), thay vì chỉ dừng lại ở việc gõ prompt cơ bản.
+- **Phổ cập hóa việc làm chủ dữ liệu và hạ tầng Cloud:** Giới thiệu các giải pháp công nghệ hiện đại giúp tối ưu hóa vận hành — từ việc dùng công cụ No-code/Low-code (Amazon Quick) để ai cũng có thể phân tích dữ liệu, cho đến việc tối ưu chi phí, hiệu suất và bảo mật hệ thống ở quy mô lớn với Amazon CloudFront.
+- **Định hướng và "giữ đôi chân trên mặt đất" cho nhân sự IT trẻ:** Sự kiện vừa truyền cảm hứng đổi mới sáng tạo (qua trải nghiệm 36 giờ Hackathon của nhóm UTMorpho), vừa định hình lại thực tế thị trường: nhắc nhở các bạn trẻ rằng dù AI có mạnh mẽ đến đâu, những kiến thức gốc rễ như Backend Engineering, Terraform (Hạ tầng bằng mã) và tư duy xây dựng hệ thống an toàn, tin cậy vẫn là giá trị cốt lõi mà doanh nghiệp tìm kiếm.
 
 ### Danh Sách Diễn Giả
 
-- **Jignesh Shah** - Director, Open Source Databases
-- **Erica Liu** - Sr. GTM Specialist, AppMod
-- **Fabrianne Effendi** - Assc. Specialist SA, Serverless Amazon Web Services
+- **Tịnh Trương** - Platform Engiiner, GoTymeX
+- **Phạm Nguyễn Hải Anh** - G-AsiaPacific VietNam, AWS Community Builder
+- **Nguyễn Tuấn Thịnh** - DevOps Engineer, First Cloud AI Journey
+- **Nhóm UTMorpho** - LotusHacks 2026
+- **Đức Đào** - Solution Architect - Cloud Kinetics
+- **Vy Lâm** - Senior Business Systems Analyst
 
 ### Nội Dung Nổi Bật
 
-#### Đưa ra các ảnh hưởng tiêu cực của kiến trúc ứng dụng cũ
+#### Tịnh Trương (Platform Engineer, GoTymeX):
 
-- Thời gian release sản phẩm lâu → Mất doanh thu/bỏ lỡ cơ hội
-- Hoạt động kém hiệu quả → Mất năng suất, tốn kém chi phí
-- Không tuân thủ các quy định về bảo mật → Mất an ninh, uy tín
+- Khẳng định "Ngữ cảnh là tất cả": AI sẽ không hiệu quả nếu thiếu đi ngữ cảnh cụ thể của từng công ty hay dự án.
+- Giới thiệu xu hướng phát triển từ "viết prompt đơn thuần" sang xây dựng "Bộ não AI thứ hai" (Second Brain) nhằm cá nhân hóa dữ liệu cho AI.
 
-#### Chuyển đổi sang kiến trúc ứng dụng mới - Microservice Architecture
+#### Phạm Nguyễn Hải Anh (AWS Community Builder):
 
-Chuyển đổi thành hệ thống modular – từng chức năng là một **dịch vụ độc lập** giao tiếp với nhau qua **sự kiện** với 3 trụ cột cốt lõi:
+- Phân tích vai trò của Amazon CloudFront như một nền tảng cốt lõi cho mọi hệ thống Web/App hiện đại..
+- Tập trung vào 4 yếu tố trọng tâm khi triển khai CloudFront: Tối ưu chi phí, tăng cường bảo mật, nâng cao hiệu suất và độ tin cậy.
 
-- **Queue Management**: Xử lý tác vụ bất đồng bộ
-- **Caching Strategy:** Tối ưu performance
-- **Message Handling:** Giao tiếp linh hoạt giữa services
+#### Nguyễn Tuấn Thịnh (DevOps Engineer):
 
-#### Domain-Driven Design (DDD)
+- Phá vỡ lầm tưởng: Việc đặt Temperature = 0 không đồng nghĩa với việc LLM sẽ luôn trả ra một kết quả duy nhất (tính không xác định do tối ưu hóa phần cứng suy luận).
+- Đưa ra các chiến lược giảm thiểu sai số và debug thực tế để đảm bảo ứng dụng AI vận hành ổn định trong môi trường production.
 
-- **Phương pháp 4 bước**: Xác định domain events → sắp xếp timeline → identify actors → xác định bounded contexts
-- **Case study bookstore**: Minh họa cách áp dụng DDD thực tế
-- **Context mapping**: 7 patterns tích hợp bounded contexts
+#### Nhóm UTMorpho (LotusHacks 2026):
 
-#### Event-Driven Architecture
+- Chia sẻ câu chuyện thực tế về hành trình đưa sản phẩm UTMorpho từ ý tưởng sơ khai đến bản demo hoàn chỉnh trong 36 giờ áp lực tại Hackathon.
+- Đúc kết bài học về tinh thần đồng đội, cách vượt qua thất bại kỹ thuật và việc "xoay chuyển ý tưởng" (pivot) khi gặp bế tắc dưới áp lực thời gian.
 
-- **3 patterns tích hợp**: Publish/Subscribe, Point-to-point, Streaming
-- **Lợi ích**: Loose coupling, scalability, resilience
-- **So sánh sync vs async**: Hiểu rõ trade-offs (sự đánh đổi)
+#### Đức Đào (Solution Architect - Cloud Kinetics):
 
-#### Compute Evolution
+- Giải bài toán thực tế bằng kiến trúc Multi-Agent (nhiều AI Agent phối hợp) thông qua case study chấm điểm tín dụng cho Startup.
+- Khuyên các bạn trẻ tập trung vào kiến thức gốc (Backend Engineering) và công cụ quản lý hạ tầng bằng code (Terraform) vì doanh nghiệp luôn cần một hệ thống an toàn, đáng tin cậy chứ không chỉ dừng lại ở mức "chạy được".
 
-- **Shared Responsibility Model**: Từ EC2 → ECS → Fargate → Lambda
-- **Serverless benefits**: No server management, auto-scaling, pay-for-value
-- **Functions vs Containers**: Criteria lựa chọn phù hợp
+#### Vy Lâm (Senior Business Systems Analyst):
 
-#### Amazon Q Developer
-
-- **SDLC automation**: Từ planning đến maintenance
-- **Code transformation**: Java upgrade, .NET modernization
-- **AWS Transform agents**: VMware, Mainframe, .NET migration
+- Giới thiệu bộ công cụ Amazon Quick Tools giúp làm việc với dữ liệu bằng ngôn ngữ tự nhiên.
+- Nổi bật với các tính năng: Quick Chat Agent (phân tích dữ liệu), Quick Flows (tạo quy trình tự động không cần code), và Quick Sight (xây dựng báo cáo tự động từ dữ liệu thô).
 
 ### Những Gì Học Được
 
-#### Tư Duy Thiết Kế
-
-- **Business-first approach**: Luôn bắt đầu từ business domain, không phải technology
-- **Ubiquitous language**: Importance của common vocabulary giữa business và tech teams
-- **Bounded contexts**: Cách identify và manage complexity trong large systems
-
-#### Kiến Trúc Kỹ Thuật
-
-- **Event storming technique**: Phương pháp thực tế để mô hình hóa quy trình kinh doanh
-- Sử dụng **Event-driven communication** thay vì synchronous calls
-- **Integration patterns**: Hiểu khi nào dùng sync, async, pub/sub, streaming
-- **Compute spectrum**: Criteria chọn từ VM → containers → serverless
-
-#### Chiến Lược Hiện Đại Hóa
-
-- **Phased approach**: Không rush, phải có roadmap rõ ràng
-- **7Rs framework**: Nhiều con đường khác nhau tùy thuộc vào đặc điểm của mỗi ứng dụng
-- **ROI measurement**: Cost reduction + business agility
+- **Tư duy "Context is King" (Ngữ cảnh là vua) khi làm AI:** Bạn học được rằng để AI thực sự giải quyết được việc cho mình, việc viết prompt chung chung là không đủ. Bạn cần biết cách xây dựng "Bộ não AI thứ hai" (Second Brain) và cung cấp dữ liệu, ngữ cảnh thực tế của dự án/doanh nghiệp thì AI mới trả về kết quả chuẩn xác.
+- **Hiểu đúng về bản chất của LLM để debug:** Nhận ra một sự thật kỹ thuật quan trọng là Temperature = 0 không đảm bảo AI luôn trả về một kết quả giống nhau 100% do các thuật toán tối ưu phần cứng. Hiểu được điều này giúp bạn không bị bỡ ngỡ và có chiến lược kiểm soát sai số tốt hơn khi đưa AI vào ứng dụng thực tế.
+- **Xu hướng làm việc với dữ liệu bằng No-code & Multi-Agent:** Bạn được tiếp cận với cách dùng ngôn ngữ tự nhiên để điều khiển dữ liệu (qua Amazon Quick) và tư duy thiết kế hệ thống nâng cao bằng cách phối hợp nhiều AI Agent (Multi-Agent) lại với nhau để giải quyết một bài toán phức tạp (như chấm điểm tín dụng).
+- **Kỹ năng sinh tồn và tối ưu hạ tầng Web:** Hiểu được cách tận dụng Amazon CloudFront để phân phối nội dung ở vùng biên (Edge), giúp tối ưu chi phí, tăng tốc độ tải trang và bảo mật hệ thống. Đây là kiến thức cực kỳ cần thiết nếu bạn có định hướng làm Web Developer hoặc DevOps/Platform Engineer.
+- **Bài học thực chiến từ Hackathon (Áp lực tạo kim cương):** Học được cách quản lý thời gian, cách làm việc nhóm để đưa một sản phẩm từ ý tưởng sơ khai thành bản demo chạy được chỉ trong 36 giờ, đặc biệt là tư duy dũng cảm "xoay chuyển ý tưởng" (pivot) khi gặp bế tắc kỹ thuật.
+- **AI quan trọng, nhưng "Gốc" vẫn là cốt lõi:** Một bài học thức tỉnh từ các chuyên gia là dù AI có phát triển đến đâu, doanh nghiệp vẫn ưu tiên tuyển những người giỏi Backend Engineering truyền thống, nắm chắc tư duy hệ thống và biết dùng Terraform (Hạ tầng bằng mã). AI chỉ là điểm cộng, năng lực kỹ thuật nền tảng để xây dựng hệ thống chạy an toàn, tin cậy mới là tất cả.
 
 ### Ứng Dụng Vào Công Việc
 
-- **Áp dụng DDD** cho project hiện tại: Event storming sessions với business team
-- **Refactor microservices**: Sử dụng bounded contexts để identify service boundaries
-- **Implement event-driven patterns**: Thay thế một số sync calls bằng async messaging
-- **Serverless adoption**: Pilot AWS Lambda cho một số use cases phù hợp
-- **Try Amazon Q Developer**: Integrate vào development workflow để boost productivity
+#### 1. Nâng cấp cách làm việc với AI (Tư duy Context & Agent)
+
+- **Xây dựng "Second Brain" cho dự án:** Thay vì mỗi lần dùng AI lại phải gõ lại từ đầu, hãy chuẩn bị sẵn một file Markdown chứa đầy đủ ngữ cảnh dự án (mục tiêu, tech stack sử dụng, cấu trúc database, quy định đặt tên biến). Trước khi hỏi AI fix bug hay viết code mới, hãy "ném" file ngữ cảnh này vào trước.
+- **Tự động hóa báo cáo với No-Code:** Nếu công việc của bạn có liên quan đến việc làm báo cáo, theo dõi số liệu (như analytics của website, log hệ thống), hãy thử tìm hiểu các công cụ BI kết hợp AI (như Amazon Quick hoặc các công cụ tương đương) để dùng ngôn ngữ tự nhiên lôi dữ liệu ra làm dashboard, thay vì ngồi viết câu lệnh SQL hay hàm Excel thủ công.
+
+#### 2. Tối ưu hóa dự án Web của bạn (Tư duy CloudFront)
+
+- **Tích hợp CDN cho sản phẩm:** Nếu bạn đang làm một website (ví dụ: web xem phim, web thương mại điện tử), hãy thử cấu hình Amazon CloudFront (hoặc Cloudflare) ở phía trước.
+
+#### 3. Vững cốt lõi Backend & Hạ tầng (Lời khuyên của Expert)
+
+- **Học và dùng Terraform thay vì click tay:** Khi triển khai ứng dụng lên Cloud (AWS/Azure), hãy bỏ thói quen lên giao diện web click chuột để tạo server hay database. Hãy tập viết Terraform (Infrastructure as Code).
+- **Xử lý Logic an toàn (Xử lý tính không xác định của LLM):** Nếu bạn định làm tính năng nào đó gọi API của OpenAI/Gemini trong app của mình, đừng bao giờ tin 100% kết quả trả về sẽ luôn đúng định dạng (dù đã chỉnh Temperature = 0).
+
+#### 4. Kỹ năng làm việc nhóm & Chạy Deadline (Bài học Hackathon)
+
+- **Áp dụng tư duy "Mở rộng/Xoay chuyển" (Pivot):** Khi làm dự án nhóm, nếu gặp một bug quá nặng hoặc một tính năng làm mãi không chạy mà deadline đã sát nút, hãy dũng cảm học cách "pivot" giống như nhóm UTMorpho.
 
 ### Trải nghiệm trong event
 
-Tham gia workshop **“GenAI-powered App-DB Modernization”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
+Tham gia workshop **“Conference Call”** là một trải nghiệm rất bổ ích, giúp tôi có cái nhìn toàn diện về cách hiện đại hóa ứng dụng và cơ sở dữ liệu bằng các phương pháp và công cụ hiện đại. Một số trải nghiệm nổi bật:
 
-#### Học hỏi từ các diễn giả có chuyên môn cao
-- Các diễn giả đến từ AWS và các tổ chức công nghệ lớn đã chia sẻ **best practices** trong thiết kế ứng dụng hiện đại.
-- Qua các case study thực tế, tôi hiểu rõ hơn cách áp dụng **Domain-Driven Design (DDD)** và **Event-Driven Architecture** vào các project lớn.
+#### 🎭 1. Học hỏi từ các diễn giả (Speakers' Insights)
+- **Tư duy thực chiến:** Tiếp thu góc nhìn sâu sắc từ các chuyên gia hàng đầu (AWS, GoTymeX, Cloud Kinetics...) về xu hướng AI và Cloud năm 2026.
+- **Cái nhìn thực tế về thị trường:** Nhận ra nghịch lý công nghệ (AI phát triển làm phần mềm rẻ hơn -> nhu cầu nhân sự vận hành hệ thống nâng cao tăng).
+- **Giữ đôi chân trên mặt đất:** Lời khuyên xương máu từ các Expert: "Dù AI mạnh đến đâu, cốt lõi của một kỹ sư vẫn là năng lực Backend truyền thống và tư duy hệ thống."
 
-#### Trải nghiệm kỹ thuật thực tế
-- Tham gia các phiên trình bày về **event storming** giúp tôi hình dung cách **mô hình hóa quy trình kinh doanh** thành các domain events.
-- Học cách **phân tách microservices** và xác định **bounded contexts** để quản lý sự phức tạp của hệ thống lớn.
-- Hiểu rõ trade-offs giữa **synchronous và asynchronous communication** cũng như các pattern tích hợp như **pub/sub, point-to-point, streaming**.
+#### 💻 2. Trải nghiệm kỹ thuật (Technical Deep Dive)
+- **Bản chất của LLM:** Hiểu sâu về cơ chế chọn mã thông báo (token) tiếp theo của mô hình ngôn ngữ lớn và hiện tượng "không xác định" kể cả khi đặt Temperature = 0 do tối ưu hóa suy luận (inference) ở phần cứng.
+- **Kiến trúc Multi-Agent:** Tiếp cận bản thiết kế hệ thống đa tác nhân (Ủy ban tín dụng ảo) cấp doanh nghiệp, giải quyết bài toán phức tạp bằng cách cho các AI Agent phối hợp, kiểm tra chéo lẫn nhau.
+- **Quản lý hạ tầng bằng mã (IaC):** Hiểu tầm quan trọng của việc dùng **Terraform** để deploy, lưu vết và nhân bản hạ tầng thay vì thao tác "click tay" truyền thống.
 
-#### Ứng dụng công cụ hiện đại
-- Trực tiếp tìm hiểu về **Amazon Q Developer**, công cụ AI hỗ trợ SDLC từ lập kế hoạch đến maintenance.
-- Học cách **tự động hóa code transformation** và pilot serverless với **AWS Lambda**, từ đó nâng cao năng suất phát triển.
+#### 🛠️ 3. Ứng dụng công cụ hiện đại (Modern Tools Application)
+- **Amazon CloudFront:** Trải nghiệm giải pháp tối ưu hóa hiệu suất website, phân phối nội dung qua các Edge Location nhằm giảm tải server gốc, tăng bảo mật và tiết kiệm chi phí băng thông.
+- **Hệ sinh thái Amazon Quick:** Tiếp cận xu hướng No-Code/Low-Code thông qua các công cụ điều khiển dữ liệu bằng ngôn ngữ tự nhiên.
 
-#### Kết nối và trao đổi
-- Workshop tạo cơ hội trao đổi trực tiếp với các chuyên gia, đồng nghiệp và team business, giúp **nâng cao ngôn ngữ chung (ubiquitous language)** giữa business và tech.
-- Qua các ví dụ thực tế, tôi nhận ra tầm quan trọng của **business-first approach**, luôn bắt đầu từ nhu cầu kinh doanh thay vì chỉ tập trung vào công nghệ.
+#### 🤝 4. Kết nối & Trao đổi (Networking & Collaboration)
+- **Không gian cộng đồng:** Cơ hội giao lưu tại tầng 26 và 36 với hàng trăm bạn học, lập trình viên và kỹ sư hệ thống có cùng đam mê tại FCAJ Community Day.
+- **Truyền cảm hứng từ bạn đồng lứa:** Trao đổi trực tiếp và học hỏi từ **Nhóm UTMorpho (LotusHacks 2026)** về cách họ sinh tồn, quản lý thời gian và vượt qua áp lực khủng khiếp của chu kỳ phát triển 36 giờ liên tục.
 
-#### Bài học rút ra
-- Việc áp dụng DDD và event-driven patterns giúp giảm **coupling**, tăng **scalability** và **resilience** cho hệ thống.
-- Chiến lược hiện đại hóa cần **phased approach** và đo lường **ROI**, không nên vội vàng chuyển đổi toàn bộ hệ thống.
-- Các công cụ AI như Amazon Q Developer có thể **boost productivity** nếu được tích hợp vào workflow phát triển hiện tại.
+#### 📝 5. Bài học rút ra (Key Takeaways)
+- **Context is King (Ngữ cảnh là vua):** Muốn AI thực sự hữu ích, phải cung cấp đủ ngữ cảnh cụ thể của dự án/doanh nghiệp thay vì chỉ viết prompt chung chung. Luôn xây dựng một lớp kiểm tra (Validation) ở Backend đối với output của AI.
+- **Xây dựng hệ thống tiêu chuẩn:** Một hệ thống tốt không chỉ dừng lại ở mức "chạy được", nó buộc phải đảm bảo 3 yếu tố: **An toàn (Securely), Đáng tin cậy (Reliably) và Tối ưu chi phí.**
+- **Dũng cảm Xoay chuyển (Pivot):** Khi chạy deadline hoặc làm Hackathon, nếu gặp bế tắc kỹ thuật, cần quyết đoán cắt tỉa tính năng hoặc đổi hướng giải pháp để đảm bảo có sản phẩm chạy được (MVP) đem đi demo.
 
 #### Một số hình ảnh khi tham gia sự kiện
 * Thêm các hình ảnh của các bạn tại đây

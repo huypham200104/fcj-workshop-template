@@ -1,14 +1,10 @@
 ---
 title: "Worklog Tuần 3"
 date: 2026-05-02
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 3 (02/05 - 15/05/2026):
 
 * Hiểu vai trò của Amazon CloudWatch trong việc giám sát tài nguyên AWS và ứng dụng

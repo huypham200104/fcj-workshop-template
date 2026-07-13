@@ -1,14 +1,10 @@
 ---
 title: "Week 3 Worklog"
 date: 2026-05-02
-weight: 1
+weight: 3
 chapter: false
 pre: " <b> 1.3. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 3 Objectives (May 2 - May 15, 2026):
 
 * Understand the role of Amazon CloudWatch in monitoring AWS resources and applications

@@ -1,59 +1,41 @@
 ---
 title: "Worklog Tuần 10"
-date: 2024-01-01
-weight: 2
+date: 2026-06-20
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+### Mục tiêu tuần 10 (20/06 - 26/06/2026):
 
-
-### Mục tiêu tuần 10:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nắm vững các thực tiễn DevOps và Tích hợp liên tục / Triển khai liên tục (CI/CD) trên AWS
+* Lưu trữ mã nguồn sử dụng AWS CodeCommit (hoặc tích hợp GitHub)
+* Tự động hóa quy trình build và test bằng AWS CodeBuild
+* Triển khai ứng dụng tự động thông qua AWS CodeDeploy
+* Điều phối toàn bộ quy trình sử dụng AWS CodePipeline
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Giai đoạn | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 20/06 | - Giới thiệu về AWS Developer Tools và khái niệm CI/CD <br> - Thiết lập repository trên AWS CodeCommit (hoặc kết nối GitHub) | 20/06/2026 | 20/06/2026 | Tài liệu CI/CD |
+| 21/06 | - Đẩy mã nguồn ứng dụng và file `buildspec.yml` lên repository | 21/06/2026 | 21/06/2026 | Phần Source Control |
+| 22/06 | - Tạo dự án AWS CodeBuild <br> - Cấu hình môi trường build và đảm bảo quá trình biên dịch, chạy test thành công | 22/06/2026 | 22/06/2026 | Phần Build |
+| 23/06 | - Chuẩn bị môi trường đích (EC2 instances hoặc ECS cluster) để triển khai <br> - Cài đặt CodeDeploy agents lên các EC2 instance đích | 23/06/2026 | 23/06/2026 | Chuẩn bị Deployment |
+| 24/06 | - Tạo AWS CodeDeploy application và deployment group <br> - Thêm file `appspec.yml` để định nghĩa các hook cho vòng đời triển khai | 24/06/2026 | 24/06/2026 | Phần CodeDeploy |
+| 25/06 | - Xây dựng AWS CodePipeline hoàn chỉnh kết nối các bước Source, Build, và Deploy <br> - Commit một thay đổi code để kích hoạt pipeline tự động chạy | 25/06/2026 | 25/06/2026 | Phần Pipeline |
+| 26/06 | - Xác minh thay đổi đã được triển khai trên ứng dụng đích <br> - Đọc log thực thi pipeline và dọn dẹp tài nguyên | 26/06/2026 | 26/06/2026 | Kiểm tra & Dọn dẹp |
 
 ### Kết quả đạt được tuần 10:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Pipeline Tự động:**
+  * Xây dựng thành công một CI/CD pipeline đầu cuối, tự tự động build, test và deploy code sau mỗi lần commit.
+* **Thành phần Infrastructure as Code:**
+  * Sử dụng `buildspec.yml` và `appspec.yml` để khai báo các bước build và triển khai một cách rõ ràng.
+* **Triển khai không gián đoạn (Zero Downtime):**
+  * Hiểu cách CodeDeploy thực hiện rolling update để duy trì tính khả dụng của ứng dụng trong quá trình triển khai bản cập nhật.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Những bài học quan trọng:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+1. **Nhanh nhẹn và Tốc độ:** CI/CD tăng tốc đáng kể chu kỳ phát hành và giảm thiểu lỗi do thao tác thủ công khi deploy.
+2. **Khả năng truy vết:** CodePipeline cung cấp giao diện trực quan về quá trình release, giúp dễ dàng nhận biết lỗi xảy ra ở công đoạn nào.
+3. **Kiến trúc tách rời:** Việc sử dụng các công cụ chuyên biệt cho Source (CodeCommit), Build (CodeBuild), và Deploy (CodeDeploy) tạo ra một quy trình DevOps linh hoạt và dễ module hóa.

@@ -1,19 +1,17 @@
 ---
-title : "Giới thiệu"
-date : 2024-01-01 
-weight : 1
-chapter : false
-pre : " <b> 5.1. </b> "
+title: "Giới thiệu tổng quan"
+date: 2026-07-10
+weight: 1
+chapter: false
+pre: " <b> 5.1. </b> "
 ---
 
-#### Giới thiệu về VPC Endpoint
+### Mục tiêu
+Giới thiệu kiến trúc tổng thể của AWS Helpdesk Portal và các dịch vụ AWS được sử dụng trong hệ thống.
 
-+ Điểm cuối VPC (endpoint) là thiết bị ảo. Chúng là các thành phần VPC có thể mở rộng theo chiều ngang, dự phòng và có tính sẵn sàng cao. Chúng cho phép giao tiếp giữa tài nguyên điện toán của bạn và dịch vụ AWS mà không gây ra rủi ro về tính sẵn sàng.
-+ Tài nguyên điện toán đang chạy trong VPC có thể truy cập Amazon S3 bằng cách sử dụng điểm cuối Gateway. Interface Endpoint  PrivateLink có thể được sử dụng bởi tài nguyên chạy trong VPC hoặc tại TTDL.
+### Kiến trúc tổng thể
+Người dùng truy cập portal thông qua CloudFront. Frontend được lưu trên S3 và bảo vệ bằng WAF. Cognito xác thực người dùng, API Gateway kiểm tra JWT token, Lambda xử lý nghiệp vụ ticket. DynamoDB lưu dữ liệu ticket, S3 lưu tệp đính kèm, SQS FIFO xử lý message thông báo, SES gửi email và DLQ lưu các message lỗi. CloudWatch và SNS hỗ trợ giám sát, còn KMS và AWS Backup tăng cường bảo mật và khả năng khôi phục.
 
-#### Tổng quan về workshop
-Trong workshop này, bạn sẽ sử dụng hai VPC.
-+ **"VPC Cloud"** dành cho các tài nguyên cloud như Gateway endpoint và EC2 instance để kiểm tra.
-+ **"VPC On-Prem"** mô phỏng môi trường truyền thống như nhà máy hoặc trung tâm dữ liệu của công ty. Một EC2 Instance chạy phần mềm StrongSwan VPN đã được triển khai trong "VPC On-prem" và được cấu hình tự động để thiết lập đường hầm VPN Site-to-Site với AWS Transit Gateway. VPN này mô phỏng kết nối từ một vị trí tại TTDL (on-prem) với AWS cloud. Để giảm thiểu chi phí, chỉ một phiên bản VPN được cung cấp để hỗ trợ workshop này. Khi lập kế hoạch kết nối VPN cho production workloads của bạn, AWS khuyên bạn nên sử dụng nhiều thiết bị VPN để có tính sẵn sàng cao.
+![Kiến trúc AWS Helpdesk Portal](/images/5-Workshop/5.1-Workshop-overview/architecture.jpg?width=90pc&classes=shadow)
 
-![overview](/images/5-Workshop/5.1-Workshop-overview/diagram1.png)
+*Hình 1: Kiến trúc tổng thể của AWS Helpdesk Portal.*

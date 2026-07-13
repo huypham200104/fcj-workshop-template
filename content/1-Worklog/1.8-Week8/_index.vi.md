@@ -1,59 +1,43 @@
 ---
 title: "Worklog Tuần 8"
-date: 2024-01-01
-weight: 1
+date: 2026-06-06
+weight: 8
 chapter: false
 pre: " <b> 1.8. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+### Mục tiêu tuần 8 (06/06 - 12/06/2026):
 
-
-### Mục tiêu tuần 8:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Tiếp tục triển khai ứng dụng FCJ Management bằng cách tạo Auto Scaling Group (ASG)
+* Cấu hình Dynamic Scaling Policies dựa trên CPU Utilization
+* Tìm hiểu Predictive Scaling sử dụng CloudWatch metrics tùy chỉnh đã chuẩn bị
+* Kiểm thử chịu tải (Stress test) ứng dụng để quan sát quá trình scale in và scale out
+* Phân tích log hoạt động scaling và vòng đời của ASG
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Giai đoạn | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 06/06 | - Ôn lại khái niệm ASG và tích hợp với Application Load Balancer <br> - Xử lý lỗi unhealthy target từ tuần trước | 06/06/2026 | 06/06/2026 | Tài liệu ASG Workshop |
+| 07/06 | - Tạo Auto Scaling Group `FCJ-Management-ASG` <br> - Gắn ASG vào Target Group và ALB hiện có <br> - Thiết lập minimum, maximum và desired capacity | 07/06/2026 | 07/06/2026 | Phần tạo ASG |
+| 08/06 | - Cấu hình Dynamic Target Tracking Scaling Policy <br> - Đặt mục tiêu CPU utilization ở mức 50% để kích hoạt scale-out | 08/06/2026 | 08/06/2026 | Phần Dynamic Scaling |
+| 09/06 | - Cấu hình Predictive Scaling Policy sử dụng custom CloudWatch metrics <br> - Phân tích dữ liệu lịch sử để dự báo lưu lượng | 09/06/2026 | 09/06/2026 | Phần Predictive Scaling |
+| 10/06 | - Thực hiện stress test bằng công cụ như Apache JMeter hoặc AWS FIS <br> - Giám sát CloudWatch alarms kích hoạt scale-out | 10/06/2026 | 10/06/2026 | Phần Stress Testing |
+| 11/06 | - Quan sát hành vi scale-in sau khi giảm tải <br> - Xác minh ứng dụng luôn khả dụng trong quá trình scaling | 11/06/2026 | 11/06/2026 | Quan sát Scaling |
+| 12/06 | - Dọn dẹp tài nguyên (EC2, ASG, ALB, RDS, VPC) để tránh phát sinh chi phí <br> - Tổng kết bài học | 12/06/2026 | 12/06/2026 | Workshop Cleanup |
 
 ### Kết quả đạt được tuần 8:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Cấu hình Auto Scaling Group:**
+  * Tạo thành công và gắn ASG vào Application Load Balancer.
+  * Cấu hình chính sách Target Tracking để tự động điều chỉnh số lượng instance dựa trên traffic.
+* **Predictive Scaling:**
+  * Triển khai predictive scaling để chủ động khởi chạy instance trước các đợt tăng traffic dự kiến.
+* **Kiểm thử và Giám sát:**
+  * Xác minh hoạt động của ASG dưới tải cao.
+  * Theo dõi các hoạt động scaling và health check để đảm bảo tính sẵn sàng cao cho ứng dụng.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Những bài học quan trọng:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+1. **Tích hợp ASG và ALB:** Auto Scaling Group hoạt động trơn tru với Load Balancer để tự động phân phối traffic đến các instance mới.
+2. **Chính sách Scaling:** Việc chọn đúng chính sách (Dynamic hay Predictive) phụ thuộc vào pattern của workload. Predictive scaling rất phù hợp cho traffic có tính chu kỳ.
+3. **Tối ưu chi phí:** ASG giúp đảm bảo chỉ chạy số lượng instance cần thiết, tối ưu hóa chi phí mà vẫn giữ vững hiệu năng.

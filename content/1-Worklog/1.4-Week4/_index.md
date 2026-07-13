@@ -1,14 +1,10 @@
 ---
 title: "Week 4 Worklog"
 date: 2026-05-08
-weight: 1
+weight: 4
 chapter: false
 pre: " <b> 1.4. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 4 Objectives (May 8 - May 15, 2026):
 
 * Understand AWS Lambda functions and serverless computing concepts

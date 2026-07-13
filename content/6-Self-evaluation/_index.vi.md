@@ -1,40 +1,33 @@
 ---
-title: "Tự đánh giá"
-date: 2024-01-01
+title: "Tự Đánh Giá"
+date: 2026-07-13
 weight: 6
 chapter: false
 pre: " <b> 6. </b> "
 ---
 
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+### Tổng quan
 
-Trong suốt thời gian thực tập tại **[Tên công ty/tổ chức]** từ **[ngày bắt đầu]** đến **[ngày kết thúc]**, tôi đã có cơ hội học hỏi, rèn luyện và áp dụng kiến thức đã được trang bị tại trường vào môi trường làm việc thực tế.  
-Tôi đã tham gia **[mô tả ngắn gọn dự án hoặc công việc chính]**, qua đó cải thiện kỹ năng **[liệt kê kỹ năng: lập trình, phân tích, viết báo cáo, giao tiếp…]**.  
+Trong suốt 12 tuần thực tập với vai trò FCJ Cloud Intern tại **Amazon Web Services Việt Nam** (từ 17/04/2026 đến 30/07/2026), tôi đã có cơ hội tuyệt vời để chuyển tiếp từ việc học các khái niệm cơ bản về điện toán đám mây sang việc thiết kế và triển khai kiến trúc Serverless cấp độ doanh nghiệp.
 
-Về tác phong, tôi luôn cố gắng hoàn thành tốt nhiệm vụ, tuân thủ nội quy, và tích cực trao đổi với đồng nghiệp để nâng cao hiệu quả công việc.
+Kỳ thực tập này không chỉ mang lại kiến thức lý thuyết; đây là một hành trình thực hành thực tế, nơi tôi áp dụng mọi thứ học được để xây dựng một **Serverless Helpdesk Portal** mạnh mẽ, bảo mật cao và tự động hóa hoàn toàn.
 
-Để phản ánh một cách khách quan quá trình thực tập, tôi xin tự đánh giá bản thân dựa trên các tiêu chí dưới đây:
+### Kỹ năng Kỹ thuật đạt được
 
+* **Hạ tầng Cloud & Mạng:** Hiểu sâu về cách cấu hình VPC, Subnets, Security Groups, và quản lý các tài nguyên tính toán, cơ sở dữ liệu với Amazon EC2, EBS, RDS.
+* **Tính sẵn sàng cao & Phục hồi sau thảm họa:** Triển khai thành công AWS Backup và Auto Scaling Group (bao gồm Predictive Scaling) để đảm bảo ứng dụng luôn sẵn sàng, chịu lỗi tốt và tối ưu chi phí.
+* **Kiến trúc Serverless:** Làm chủ hệ sinh thái Serverless thông qua Amazon API Gateway, AWS Lambda và Amazon DynamoDB. Tôi đã học được cách tách rời hệ thống bằng thiết kế sự kiện bất đồng bộ (event-driven) với Amazon SQS (FIFO & DLQ) và Amazon SES.
+* **DevOps & CI/CD:** Xây dựng tư duy DevOps bằng cách tự động hóa toàn bộ vòng đời phát hành phần mềm sử dụng AWS CodeCommit, CodeBuild, CodeDeploy và CodePipeline.
+* **Bảo mật & Giám sát:** Biết cách áp dụng bảo mật đa tầng với Amazon Cognito (JWT), AWS WAF, và mã hóa AWS KMS. Tôi cũng đã cấu hình hệ thống giám sát và cảnh báo chủ động thông qua Amazon CloudWatch và Amazon SNS.
 
-| STT | Tiêu chí                            | Mô tả                                                                                            | Tốt | Khá | Trung bình |
-| --- | ----------------------------------- | ------------------------------------------------------------------------------------------------ | --- | --- | ---------- |
-| 1   | **Kiến thức và kỹ năng chuyên môn** | Hiểu biết về ngành, áp dụng kiến thức vào thực tế, kỹ năng sử dụng công cụ, chất lượng công việc | ✅   | ☐   | ☐          |
-| 2   | **Khả năng học hỏi**                | Tiếp thu kiến thức mới, học hỏi nhanh                                                            | ☐   | ✅   | ☐          |
-| 3   | **Chủ động**                        | Tự tìm hiểu, nhận nhiệm vụ mà không chờ chỉ dẫn                                                  | ✅   | ☐   | ☐          |
-| 4   | **Tinh thần trách nhiệm**           | Hoàn thành công việc đúng hạn, đảm bảo chất lượng                                                | ✅   | ☐   | ☐          |
-| 5   | **Kỷ luật**                         | Tuân thủ giờ giấc, nội quy, quy trình làm việc                                                   | ☐   | ☐   | ✅          |
-| 6   | **Tính cầu tiến**                   | Sẵn sàng nhận feedback và cải thiện bản thân                                                     | ☐   | ✅   | ☐          |
-| 7   | **Giao tiếp**                       | Trình bày ý tưởng, báo cáo công việc rõ ràng                                                     | ☐   | ✅   | ☐          |
-| 8   | **Hợp tác nhóm**                    | Làm việc hiệu quả với đồng nghiệp, tham gia nhóm                                                 | ✅   | ☐   | ☐          |
-| 9   | **Ứng xử chuyên nghiệp**            | Tôn trọng đồng nghiệp, đối tác, môi trường làm việc                                              | ✅   | ☐   | ☐          |
-| 10  | **Tư duy giải quyết vấn đề**        | Nhận diện vấn đề, đề xuất giải pháp, sáng tạo                                                    | ☐   | ✅   | ☐          |
-| 11  | **Đóng góp vào dự án/tổ chức**      | Hiệu quả công việc, sáng kiến cải tiến, ghi nhận từ team                                         | ✅   | ☐   | ☐          |
-| 12  | **Tổng thể**                        | Đánh giá chung về toàn bộ quá trình thực tập                                                     | ✅   | ☐   | ☐          |
+### Kỹ năng Mềm & Phát triển Bản thân
 
-### Cần cải thiện
+* **Giải quyết vấn đề & Gỡ lỗi (Troubleshooting):** Quá trình debug các template CloudFormation, xử lý lỗi health check của Load Balancer, hay truy vết lỗi thực thi Lambda qua CloudWatch Logs đã giúp tôi cải thiện tư duy phân tích và tốc độ xử lý sự cố.
+* **Thiết kế Kiến trúc:** Tôi học được cách "tư duy như một Solutions Architect". Thay vì chỉ cắm cúi viết code, tôi luôn cân nhắc dựa trên Well-Architected Framework—đánh giá về bảo mật, độ tin cậy, hiệu năng và chi phí trước khi xây dựng.
+* **Quản lý Thời gian & Viết Tài liệu:** Việc duy trì cập nhật nhật ký công việc hàng tuần và bám sát tiến độ dự án đã dạy tôi tầm quan trọng của việc viết tài liệu rõ ràng và quản lý thời gian kỷ luật.
 
-* Nâng cao tính kỹ luật, chấp hành nghiêm chỉnh nội quy của công ty hoặc bất kỳ trong một tổ chức nào
-* Cải thiện trong cách tư duy giải quyết vấn đề
-* Học cách giao tiếp tốt hơn trong giao tiếp hằng ngày và trong công việc, xử lý tình huống
+### Lời kết & Định hướng Tương lai
+
+Đỉnh cao của kỳ thực tập này là việc xây dựng thành công dự án **Serverless Helpdesk Portal**. Việc chứng kiến một dự án phát triển từ một VPC trống rỗng thành một ứng dụng tự động hóa CI/CD, thiết kế event-driven bảo mật cao là một trải nghiệm cực kỳ vô giá.
+
+Kỳ thực tập đã củng cố niềm đam mê mãnh liệt của tôi dành cho Cloud Computing và DevOps. Trong tương lai, tôi dự định sẽ nghiên cứu sâu hơn về Containerization (EKS), Infrastructure as Code (Terraform) và hướng tới việc thi lấy chứng chỉ AWS Certified Solutions Architect. Tôi xin gửi lời cảm ơn sâu sắc đến các anh chị mentor tại FCJ và AWS Việt Nam đã tận tình hướng dẫn tôi trong suốt hành trình này.

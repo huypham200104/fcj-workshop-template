@@ -1,14 +1,10 @@
 ---
 title: "Week 6 Worklog"
 date: 2026-05-23
-weight: 1
+weight: 6
 chapter: false
 pre: " <b> 1.6. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
-
 ### Week 6 Objectives (May 23 - May 29, 2026):
 
 * Understand how AWS Backup centralizes backup and restore operations for AWS resources

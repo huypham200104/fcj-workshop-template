@@ -1,14 +1,10 @@
 ---
 title: "Worklog Tuần 7"
 date: 2026-05-30
-weight: 1
+weight: 7
 chapter: false
 pre: " <b> 1.7. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 7 (30/05 - 05/06/2026):
 
 * Hiểu kiến trúc triển khai ứng dụng FCJ Management để chuẩn bị cho Auto Scaling Group

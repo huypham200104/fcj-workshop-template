@@ -1,59 +1,41 @@
 ---
 title: "Worklog Tuần 9"
-date: 2024-01-01
-weight: 1
+date: 2026-06-13
+weight: 9
 chapter: false
 pre: " <b> 1.9. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
+### Mục tiêu tuần 9 (13/06 - 19/06/2026):
 
-
-### Mục tiêu tuần 9:
-
-* Kết nối, làm quen với các thành viên trong First Cloud Journey.
-* Hiểu dịch vụ AWS cơ bản, cách dùng console & CLI.
+* Nắm vững kiến trúc Serverless và các lợi ích (Không quản lý máy chủ, trả tiền theo lượng dùng)
+* Xây dựng backend Serverless sử dụng AWS Lambda và Amazon API Gateway
+* Lưu trữ và truy xuất dữ liệu bằng Amazon DynamoDB (Cơ sở dữ liệu NoSQL)
+* Bảo mật API bằng IAM và API Gateway authorizers
+* Giám sát và gỡ lỗi ứng dụng serverless bằng AWS X-Ray và CloudWatch
 
 ### Các công việc cần triển khai trong tuần này:
-| Thứ | Công việc                                                                                                                                                                                   | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu                            |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------ | --------------- | ----------------------------------------- |
-| 2   | - Làm quen với các thành viên FCJ <br> - Đọc và lưu ý các nội quy, quy định tại đơn vị thực tập                                                                                             | 11/08/2025   | 11/08/2025      |
-| 3   | - Tìm hiểu AWS và các loại dịch vụ <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                            | 12/08/2025   | 12/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Tạo AWS Free Tier account <br> - Tìm hiểu AWS Console & AWS CLI <br> - **Thực hành:** <br>&emsp; + Tạo AWS account <br>&emsp; + Cài AWS CLI & cấu hình <br> &emsp; + Cách sử dụng AWS CLI | 13/08/2025   | 13/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Tìm hiểu EC2 cơ bản: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - Các cách remote SSH vào EC2 <br> - Tìm hiểu Elastic IP   <br>                  | 14/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Thực hành:** <br>&emsp; + Tạo EC2 instance <br>&emsp; + Kết nối SSH <br>&emsp; + Gắn EBS volume                                                                                         | 15/08/2025   | 15/08/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Giai đoạn | Công việc | Ngày bắt đầu | Ngày hoàn thành | Nguồn tài liệu |
+| --- | --- | --- | --- | --- |
+| 13/06 | - Giới thiệu về khái niệm Serverless (Lambda, API Gateway, DynamoDB) <br> - Thiết kế kiến trúc cho ứng dụng To-Do serverless | 13/06/2026 | 13/06/2026 | Tài liệu Serverless |
+| 14/06 | - Tạo bảng Amazon DynamoDB `ToDoItems` với Partition Key là `id` <br> - Tìm hiểu các chế độ Read/Write capacity của DynamoDB | 14/06/2026 | 14/06/2026 | Phần DynamoDB |
+| 15/06 | - Tạo IAM Role với quyền hạn tối thiểu (least-privilege) cho Lambda <br> - Viết các AWS Lambda functions (Node.js/Python) cho các thao tác CRUD | 15/06/2026 | 15/06/2026 | Phần Lambda |
+| 16/06 | - Cấu hình Amazon API Gateway làm cổng giao tiếp cho Lambda <br> - Thiết lập RESTful routes (GET, POST, PUT, DELETE) và CORS | 16/06/2026 | 16/06/2026 | Phần API Gateway |
+| 17/06 | - Kiểm thử các API endpoints bằng Postman hoặc cURL <br> - Tích hợp API Gateway với Lambda dùng Proxy Integration | 17/06/2026 | 17/06/2026 | Kiểm thử API |
+| 18/06 | - Triển khai xác thực API sử dụng Amazon Cognito User Pools hoặc API Keys <br> - Bật AWS X-Ray để theo dõi phân tán (distributed tracing) | 18/06/2026 | 18/06/2026 | Bảo mật & Giám sát |
+| 19/06 | - Đọc CloudWatch Logs của các quá trình thực thi Lambda <br> - Dọn dẹp tài nguyên serverless | 19/06/2026 | 19/06/2026 | Tổng kết & Dọn dẹp |
 
 ### Kết quả đạt được tuần 9:
 
-* Hiểu AWS là gì và nắm được các nhóm dịch vụ cơ bản: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Backend Serverless:**
+  * Triển khai thành công một REST API hoàn toàn Serverless mà không cần khởi tạo server nào.
+* **Tích hợp Database:**
+  * Thiết kế và sử dụng DynamoDB để lưu trữ dữ liệu NoSQL nhanh chóng, dễ dàng mở rộng.
+* **Bảo mật & Tracing:**
+  * Bảo vệ các endpoint của API và bật X-Ray tracing để phân tích hiệu suất và nút thắt cổ chai.
 
-* Đã tạo và cấu hình AWS Free Tier account thành công.
+### Những bài học quan trọng:
 
-* Làm quen với AWS Management Console và biết cách tìm, truy cập, sử dụng dịch vụ từ giao diện web.
-
-* Cài đặt và cấu hình AWS CLI trên máy tính bao gồm:
-  * Access Key
-  * Secret Key
-  * Region mặc định
-  * ...
-
-* Sử dụng AWS CLI để thực hiện các thao tác cơ bản như:
-
-  * Kiểm tra thông tin tài khoản & cấu hình
-  * Lấy danh sách region
-  * Xem dịch vụ EC2
-  * Tạo và quản lý key pair
-  * Kiểm tra thông tin dịch vụ đang chạy
-  * ...
-
-* Có khả năng kết nối giữa giao diện web và CLI để quản lý tài nguyên AWS song song.
-* ...
-
-
+1. **Mô hình Trả-theo-dùng (Pay-as-you-go):** Điện toán Serverless chỉ tính phí dựa trên thời gian tính toán thực tế, rất tiết kiệm cho các workload biến động.
+2. **Bản chất phi trạng thái (Stateless):** Các hàm Lambda là stateless, cần lưu trữ bên ngoài như DynamoDB để duy trì dữ liệu ứng dụng.
+3. **Quản lý API:** API Gateway đơn giản hóa việc định tuyến, giới hạn lưu lượng (throttling) và phân quyền, đóng vai trò là điểm vào bảo mật cho microservices.

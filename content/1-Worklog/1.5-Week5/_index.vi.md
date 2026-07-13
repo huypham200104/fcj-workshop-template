@@ -1,14 +1,10 @@
 ---
 title: "Worklog Tuần 5"
 date: 2026-05-16
-weight: 1
+weight: 5
 chapter: false
 pre: " <b> 1.5. </b> "
 ---
-{{% notice warning %}}
-⚠️ **Lưu ý:** Các thông tin dưới đây chỉ nhằm mục đích tham khảo, vui lòng **không sao chép nguyên văn** cho bài báo cáo của bạn kể cả warning này.
-{{% /notice %}}
-
 ### Mục tiêu tuần 5 (16/05 - 22/05/2026):
 
 * Hiểu mục đích của AWS Web Application Firewall (AWS WAF) trong việc bảo vệ web application

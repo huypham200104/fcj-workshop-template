@@ -1,57 +1,41 @@
 ---
 title: "Week 10 Worklog"
-date: 2024-01-01
-weight: 2
+date: 2026-06-20
+weight: 10
 chapter: false
 pre: " <b> 1.10. </b> "
 ---
-{{% notice warning %}} 
-⚠️ **Note:** The following information is for reference purposes only. Please **do not copy verbatim** for your own report, including this warning.
-{{% /notice %}}
+### Week 10 Objectives (June 20 - June 26, 2026):
 
-
-### Week 10 Objectives:
-
-* Connect and get acquainted with members of First Cloud Journey.
-* Understand basic AWS services, how to use the console & CLI.
+* Understand DevOps practices and Continuous Integration / Continuous Deployment (CI/CD) on AWS
+* Host source code using AWS CodeCommit (or GitHub integration)
+* Automate the build and test process using AWS CodeBuild
+* Deploy applications automatically using AWS CodeDeploy
+* Orchestrate the entire workflow using AWS CodePipeline
 
 ### Tasks to be carried out this week:
-| Day | Task                                                                                                                                                                                                   | Start Date | Completion Date | Reference Material                        |
-| --- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------- | --------------- | ----------------------------------------- |
-| 2   | - Get acquainted with FCJ members <br> - Read and take note of internship unit rules and regulations                                                                                                   | 08/11/2025 | 08/11/2025      |
-| 3   | - Learn about AWS and its types of services <br>&emsp; + Compute <br>&emsp; + Storage <br>&emsp; + Networking <br>&emsp; + Database <br>&emsp; + ... <br>                                              | 08/12/2025 | 08/12/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 4   | - Create AWS Free Tier account <br> - Learn about AWS Console & AWS CLI <br> - **Practice:** <br>&emsp; + Create AWS account <br>&emsp; + Install & configure AWS CLI <br> &emsp; + How to use AWS CLI | 08/13/2025 | 08/13/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 5   | - Learn basic EC2: <br>&emsp; + Instance types <br>&emsp; + AMI <br>&emsp; + EBS <br>&emsp; + ... <br> - SSH connection methods to EC2 <br> - Learn about Elastic IP   <br>                            | 08/14/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
-| 6   | - **Practice:** <br>&emsp; + Launch an EC2 instance <br>&emsp; + Connect via SSH <br>&emsp; + Attach an EBS volume                                                                                     | 08/15/2025 | 08/15/2025      | <https://cloudjourney.awsstudygroup.com/> |
 
+| Period | Task | Start Date | Completion Date | Reference Material |
+| --- | --- | --- | --- | --- |
+| June 20 | - Introduction to AWS Developer Tools and CI/CD concepts <br> - Set up a repository in AWS CodeCommit (or connect to GitHub) | 06/20/2026 | 06/20/2026 | CI/CD Workshop |
+| June 21 | - Push application source code and a `buildspec.yml` file to the repository | 06/21/2026 | 06/21/2026 | Source Control section |
+| June 22 | - Create an AWS CodeBuild project <br> - Configure build environments and verify that the build compiles the code and runs tests successfully | 06/22/2026 | 06/22/2026 | Build section |
+| June 23 | - Prepare target environments (EC2 instances or ECS cluster) for deployment <br> - Install CodeDeploy agents on target EC2 instances | 06/23/2026 | 06/23/2026 | Deployment Prep |
+| June 24 | - Create an AWS CodeDeploy application and deployment group <br> - Add an `appspec.yml` file to define deployment lifecycle hooks | 06/24/2026 | 06/24/2026 | CodeDeploy section |
+| June 25 | - Build a full AWS CodePipeline connecting Source, Build, and Deploy stages <br> - Commit a code change to trigger a fully automated pipeline run | 06/25/2026 | 06/25/2026 | Pipeline section |
+| June 26 | - Verify the deployed changes on the target application <br> - Review pipeline execution logs and clean up resources | 06/26/2026 | 06/26/2026 | Verification & Cleanup |
 
 ### Week 10 Achievements:
 
-* Understood what AWS is and mastered the basic service groups: 
-  * Compute
-  * Storage
-  * Networking 
-  * Database
-  * ...
+* **Automated Pipeline:**
+  * Successfully built an end-to-end CI/CD pipeline that automatically builds, tests, and deploys code upon every git commit.
+* **Infrastructure as Code elements:**
+  * Utilized `buildspec.yml` and `appspec.yml` to define build instructions and deployment steps declaratively.
+* **Zero Downtime Deployments:**
+  * Learned how CodeDeploy can perform rolling updates to maintain application availability during deployments.
 
-* Successfully created and configured an AWS Free Tier account.
+### Key Learnings:
 
-* Became familiar with the AWS Management Console and learned how to find, access, and use services via the web interface.
-
-* Installed and configured AWS CLI on the computer, including:
-  * Access Key
-  * Secret Key
-  * Default Region
-  * ...
-
-* Used AWS CLI to perform basic operations such as:
-
-  * Check account & configuration information
-  * Retrieve the list of regions
-  * View EC2 service
-  * Create and manage key pairs
-  * Check information about running services
-  * ...
-
-* Acquired the ability to connect between the web interface and CLI to manage AWS resources in parallel.
-* ...
+1. **Agility and Speed:** CI/CD significantly speeds up the release cycle and reduces manual errors during deployments.
+2. **Traceability:** CodePipeline provides a visual representation of the release process, making it easy to spot where failures occur.
+3. **Decoupled Architecture:** Using specific tools for Source (CodeCommit), Build (CodeBuild), and Deploy (CodeDeploy) allows for a flexible and modular DevOps workflow.
