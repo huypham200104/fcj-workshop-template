@@ -126,7 +126,7 @@ npx bmad-method install
 
 Dưới đây là hình ảnh ghi lại khi tham gia sự kiện:
 
-![Hình ảnh tại Event 1](/images/event2.jpg)
+![Hình ảnh tại Event 1](/images/4-Event/event1.png)
 
 ---
 

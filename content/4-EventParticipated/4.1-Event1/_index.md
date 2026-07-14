@@ -127,7 +127,7 @@ npx bmad-method install
 
 Below is a photo captured while attending the event:
 
-![Photo from Event 1](/images/event2.jpg)
+![Photo from Event 1](/images/4-Event/event1.png)
 
 ---
 
