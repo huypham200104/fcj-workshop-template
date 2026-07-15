@@ -35,13 +35,13 @@ pre: " <b> 1.2. </b> "
 * Successfully configured security groups and key pairs to control access to EC2 instances using the expected security model.
 
 * Implemented Bastion Host access for public-to-private connectivity and used `scp` and `chmod 400` to secure file transfer and protect sensitive keys.
-  ![Bastion Host and NAT Gateway Access](/images/1-Worklog/week2-bastion-nat-gateway-access.jpg)
+  ![Bastion Host and NAT Gateway Access](../../images/1-Worklog/week2-bastion-nat-gateway-access.jpg)
 
 * Deployed a NAT Gateway and configured the route table correctly for the private subnet, enabling one-way internet access for updates and package installation.
 
 * Set up and validated EC2 Instance Connect Endpoint (EICE), making it possible to log in directly to a private instance from the browser without a public IP or intermediary host.
-  ![EICE Endpoint Successfully Created](/images/1-Worklog/week2-eice-endpoint-created-available.jpg)
-  ![Successful Connection to Private Instance via EICE](/images/1-Worklog/week2-eice-private-ec2-connection.jpg)
+  ![EICE Endpoint Successfully Created](../../images/1-Worklog/week2-eice-endpoint-created-available.jpg)
+  ![Successful Connection to Private Instance via EICE](../../images/1-Worklog/week2-eice-private-ec2-connection.jpg)
 
 * Used Reachability Analyzer to quickly identify network issues related to security groups or route tables, reducing manual troubleshooting time.
 

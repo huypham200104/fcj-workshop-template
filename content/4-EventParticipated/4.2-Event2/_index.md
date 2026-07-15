@@ -117,6 +117,6 @@ Attending the **“Conference Call”** workshop was a very valuable experience,
 - **Be brave to pivot:** Under deadlines or in hackathons, if you encounter a technical dead-end, decide to trim features or change direction to deliver a working MVP for demo.
 
 #### Some event photos
-![Event 2](/images/4-Event/event2.png)
+![Event 2](../../images/4-Event/event2.png)
 
 > Overall, the event not only provided technical knowledge but also helped me reshape my thinking about application design, system modernization, and effective team collaboration.

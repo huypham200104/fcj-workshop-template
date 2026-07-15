@@ -116,5 +116,5 @@ Tham gia workshop **“Conference Call”** là một trải nghiệm rất bổ
 - **Dũng cảm Xoay chuyển (Pivot):** Khi chạy deadline hoặc làm Hackathon, nếu gặp bế tắc kỹ thuật, cần quyết đoán cắt tỉa tính năng hoặc đổi hướng giải pháp để đảm bảo có sản phẩm chạy được (MVP) đem đi demo.
 
 #### Một số hình ảnh khi tham gia sự kiện
-![Event 2](/images/4-Event/event2.png)
+![Event 2](../../images/4-Event/event2.png)
 > Tổng thể, sự kiện không chỉ cung cấp kiến thức kỹ thuật mà còn giúp tôi thay đổi cách tư duy về thiết kế ứng dụng, hiện đại hóa hệ thống và phối hợp hiệu quả hơn giữa các team.

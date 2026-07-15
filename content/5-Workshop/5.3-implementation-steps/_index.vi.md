@@ -21,7 +21,7 @@ Tạo S3 bucket để lưu các file frontend tĩnh.
 
 ⚠️ **Warning:** Không public frontend bucket nếu bạn dùng CloudFront với Origin Access Control. Người dùng nên truy cập qua CloudFront thay vì truy cập trực tiếp vào S3.
 
-![Tạo S3 frontend bucket](/images/5-Workshop/5.3-Implementation/Frontend/S3/CreateS3.png?width=90pc&classes=shadow)
+![Tạo S3 frontend bucket](../../images/5-Workshop/5.3-Implementation/Frontend/S3/CreateS3.png?width=90pc&classes=shadow)
 
 *Hình 1: Tạo S3 bucket dùng để lưu frontend.*
 
@@ -32,7 +32,7 @@ Upload các file frontend đã build lên bucket.
 3. Thêm các file và folder frontend.
 4. Chọn **Upload**.
 
-![Upload frontend](/images/5-Workshop/5.3-Implementation/Frontend/S3/upload.png?width=90pc&classes=shadow)
+![Upload frontend](../../images/5-Workshop/5.3-Implementation/Frontend/S3/upload.png?width=90pc&classes=shadow)
 
 *Hình 2: Upload file frontend lên S3 bucket.*
 
@@ -49,7 +49,7 @@ Tạo Origin Access Control trước để CloudFront truy cập S3 private buck
 5. Giữ signing behavior được khuyến nghị.
 6. Tạo OAC.
 
-![Tạo origin access](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/create-origin-access.png?width=90pc&classes=shadow)
+![Tạo origin access](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/create-origin-access.png?width=90pc&classes=shadow)
 
 *Hình 3: Cấu hình Origin Access Control cho S3.*
 
@@ -60,7 +60,7 @@ Tạo CloudFront distribution và kết nối với frontend S3 bucket.
 3. Chọn OAC đã tạo ở bước trước.
 4. Đặt **Default root object** là `index.html`.
 
-![Tạo CloudFront](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/createCloudF.png?width=90pc&classes=shadow)
+![Tạo CloudFront](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/createCloudF.png?width=90pc&classes=shadow)
 
 *Hình 4: Tạo CloudFront distribution cho frontend.*
 
@@ -72,7 +72,7 @@ Kiểm tra lại cấu hình chính trước khi tạo distribution.
 
 ⚠️ **Warning:** CloudFront cần vài phút để deploy thay đổi. Hãy chờ distribution có trạng thái **Deployed** trước khi kiểm thử URL portal.
 
-![Chọn cấu hình CloudFront](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/choose%20setting.png?width=90pc&classes=shadow)
+![Chọn cấu hình CloudFront](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/choose%20setting.png?width=90pc&classes=shadow)
 
 *Hình 5: Kiểm tra cấu hình CloudFront distribution.*
 
@@ -89,7 +89,7 @@ Tạo WAF Web ACL để bảo vệ endpoint public của CloudFront.
 
 ⚠️ **Warning:** Khi bảo vệ CloudFront, WAF scope phải là **CloudFront distributions**. Nếu chọn regional scope, Web ACL sẽ không gắn được với CloudFront.
 
-![Tạo WAF](/images/5-Workshop/5.3-Implementation/Frontend/WAF/createWAF.png?width=90pc&classes=shadow)
+![Tạo WAF](../../images/5-Workshop/5.3-Implementation/Frontend/WAF/createWAF.png?width=90pc&classes=shadow)
 
 *Hình 6: Tạo WAF Web ACL.*
 
@@ -99,7 +99,7 @@ Associate Web ACL với CloudFront distribution.
 2. Thêm CloudFront distribution.
 3. Lưu cấu hình association.
 
-![Gắn WAF vào CloudFront](/images/5-Workshop/5.3-Implementation/Frontend/WAF/connect-CLF.png?width=90pc&classes=shadow)
+![Gắn WAF vào CloudFront](../../images/5-Workshop/5.3-Implementation/Frontend/WAF/connect-CLF.png?width=90pc&classes=shadow)
 
 *Hình 7: Gắn WAF với CloudFront.*
 
@@ -115,7 +115,7 @@ Tạo Cognito User Pool để quản lý đăng nhập.
 4. Cấu hình password policy và user verification.
 5. Tạo user pool.
 
-![Tạo Cognito](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/createCog.png?width=90pc&classes=shadow)
+![Tạo Cognito](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/createCog.png?width=90pc&classes=shadow)
 
 *Hình 8: Tạo Cognito User Pool.*
 
@@ -126,7 +126,7 @@ Cấu hình App Client cho frontend.
 3. Tạo hoặc chỉnh sửa App Client.
 4. Dùng cấu hình public client cho web frontend.
 
-![Cấu hình app client](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/edit-appclient.png?width=90pc&classes=shadow)
+![Cấu hình app client](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/edit-appclient.png?width=90pc&classes=shadow)
 
 *Hình 9: Cấu hình Cognito App Client.*
 
@@ -138,7 +138,7 @@ Cấu hình callback và sign-out URL.
 
 ⚠️ **Warning:** Callback URL và sign-out URL phải khớp chính xác với frontend URL. Nếu sai URL, Cognito có thể đăng nhập lỗi hoặc redirect sai trang.
 
-![Return URL](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/returnURL.png?width=90pc&classes=shadow)
+![Return URL](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/returnURL.png?width=90pc&classes=shadow)
 
 *Hình 10: Cấu hình callback và sign-out URL.*
 
@@ -147,7 +147,7 @@ Tạo group và user mẫu.
 1. Tạo các group như `User` và `Admin`.
 2. Dùng group để tách quyền requester và staff.
 
-![Tạo group](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-group.png?width=90pc&classes=shadow)
+![Tạo group](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-group.png?width=90pc&classes=shadow)
 
 *Hình 11: Tạo group để phân quyền người dùng.*
 
@@ -155,7 +155,7 @@ Tạo group và user mẫu.
 2. Gán user vào đúng group.
 3. Đặt hoặc reset password để test.
 
-![Tạo user](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-user.png?width=90pc&classes=shadow)
+![Tạo user](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-user.png?width=90pc&classes=shadow)
 
 *Hình 12: Tạo user mẫu để kiểm thử.*
 
@@ -174,7 +174,7 @@ Tạo DynamoDB table đầu tiên để lưu helpdesk categories.
 
 ⚠️ **Warning:** Tên table và key của từng DynamoDB table phải khớp với backend code. Nếu đặt khác, API sẽ lỗi khi đọc hoặc ghi dữ liệu.
 
-![Tạo HelpdeskCategories table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CateDB.png?width=90pc&classes=shadow)
+![Tạo HelpdeskCategories table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CateDB.png?width=90pc&classes=shadow)
 
 *Hình 13: Tạo DynamoDB table lưu helpdesk categories.*
 
@@ -186,7 +186,7 @@ Tạo DynamoDB table thứ hai để lưu ticket records.
 4. Chọn capacity mode **On-demand**.
 5. Tạo table.
 
-![Tạo HelpdeskTickets table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/TicketDB.png?width=90pc&classes=shadow)
+![Tạo HelpdeskTickets table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/TicketDB.png?width=90pc&classes=shadow)
 
 *Hình 14: Tạo DynamoDB table lưu helpdesk tickets.*
 
@@ -198,7 +198,7 @@ Tạo DynamoDB table thứ ba để lưu comment của ticket.
 4. Chọn capacity mode **On-demand**.
 5. Tạo table.
 
-![Tạo HelpdeskComments table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CommentDB.png?width=90pc&classes=shadow)
+![Tạo HelpdeskComments table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CommentDB.png?width=90pc&classes=shadow)
 
 *Hình 15: Tạo DynamoDB table lưu helpdesk comments.*
 
@@ -216,7 +216,7 @@ Tạo S3 bucket private để lưu attachment của ticket.
 
 ⚠️ **Warning:** Bucket này nên để private vì attachment có thể chứa thông tin nhạy cảm. Không bật public read access.
 
-![Tạo attachment bucket](/images/5-Workshop/5.3-Implementation/Backend/S3-attachment/createS3-attachment.png?width=90pc&classes=shadow)
+![Tạo attachment bucket](../../images/5-Workshop/5.3-Implementation/Backend/S3-attachment/createS3-attachment.png?width=90pc&classes=shadow)
 
 *Hình 16: Tạo S3 bucket lưu attachment của ticket.*
 
@@ -231,7 +231,7 @@ Tạo Lambda function xử lý nghiệp vụ ticket.
 3. Nhập function name, ví dụ `SubmitTicketFunction`.
 4. Chọn runtime phù hợp với backend.
 
-![Tạo submit function](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/createFunction.png?width=90pc&classes=shadow)
+![Tạo submit function](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/createFunction.png?width=90pc&classes=shadow)
 
 *Hình 17: Tạo Lambda.*
 
@@ -241,7 +241,7 @@ Upload source code backend.
 2. Upload backend package hoặc source code.
 3. Save hoặc deploy function code.
 
-![Upload backend](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/uploadbackend.png?width=90pc&classes=shadow)
+![Upload backend](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/uploadbackend.png?width=90pc&classes=shadow)
 
 *Hình 18: Upload backend code lên Lambda.*
 
@@ -251,7 +251,7 @@ Cấu hình environment variables cho backend.
 2. Lưu cấu hình.
 3. SQS queue URL sẽ được thêm sau khi tạo queue ở bước 9.
 
-![Cấu hình environment](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/setting%20environment.png?width=90pc&classes=shadow)
+![Cấu hình environment](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/setting%20environment.png?width=90pc&classes=shadow)
 
 *Hình 19: Cấu hình environment variables cho Lambda.*
 
@@ -266,7 +266,7 @@ Tạo HTTP API và kết nối với Lambda.
 3. Chọn **HTTP API**.
 4. Thêm Lambda integration và chọn `SubmitTicketFunction`.
 
-![Tạo HTTP API](/images/5-Workshop/5.3-Implementation/Backend/API/create-HTTP-API.png?width=90pc&classes=shadow)
+![Tạo HTTP API](../../images/5-Workshop/5.3-Implementation/Backend/API/create-HTTP-API.png?width=90pc&classes=shadow)
 
 *Hình 20: Tạo HTTP API.*
 
@@ -279,7 +279,7 @@ Thêm route cho các thao tác ticket.
 
 ⚠️ **Warning:** Không để các route ticket ở trạng thái unauthenticated. Hãy gắn Cognito JWT authorizer cho các route tạo, đọc hoặc cập nhật ticket.
 
-![Thêm route API](/images/5-Workshop/5.3-Implementation/Backend/API/add-route-API.png?width=90pc&classes=shadow)
+![Thêm route API](../../images/5-Workshop/5.3-Implementation/Backend/API/add-route-API.png?width=90pc&classes=shadow)
 
 *Hình 21: Thêm route xử lý ticket.*
 
@@ -289,7 +289,7 @@ Thêm các trigger từ API Gateway sang Lambda.
 2. Thêm API Gateway xuất hiện trong phần trigger.
 3. Lưu lại API endpoint để cấu hình frontend.
 
-![Thêm Lambda trigger](/images/5-Workshop/5.3-Implementation/Backend/API/add-triggerAPI-forSubFunction.png?width=90pc&classes=shadow)
+![Thêm Lambda trigger](../../images/5-Workshop/5.3-Implementation/Backend/API/add-triggerAPI-forSubFunction.png?width=90pc&classes=shadow)
 
 *Hình 22: Kết nối API Gateway với Lambda.*
 
@@ -307,7 +307,7 @@ Tạo Dead Letter Queue trước.
 
 ⚠️ **Warning:** Tên FIFO queue bắt buộc kết thúc bằng `.fifo`. Hãy tạo DLQ trước rồi mới cấu hình DLQ cho main queue.
 
-![Tạo DLQ](/images/5-Workshop/5.3-Implementation/Backend/SQS/DLQ/createDLQ.png?width=90pc&classes=shadow)
+![Tạo DLQ](../../images/5-Workshop/5.3-Implementation/Backend/SQS/DLQ/createDLQ.png?width=90pc&classes=shadow)
 
 *Hình 23: Tạo dead-letter queue.*
 
@@ -318,7 +318,7 @@ Tạo main FIFO notification queue.
 3. Nhập tên main queue, ví dụ `helpdesk-notification-queue.fifo`.
 4. Bật **Content-based deduplication** nếu phù hợp.
 
-![Tạo SQS queue](/images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/createSQS-queue.png?width=90pc&classes=shadow)
+![Tạo SQS queue](../../images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/createSQS-queue.png?width=90pc&classes=shadow)
 
 *Hình 24: Tạo main FIFO notification queue.*
 
@@ -332,7 +332,7 @@ Gắn DLQ vào main queue.
 
 ⚠️ **Warning:** Nếu không cập nhật SQS queue URL trong environment variables của Lambda, ticket vẫn có thể tạo được nhưng notification message sẽ không được đưa vào queue.
 
-![Gắn DLQ](/images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/add-DLQ.png?width=90pc&classes=shadow)
+![Gắn DLQ](../../images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/add-DLQ.png?width=90pc&classes=shadow)
 
 *Hình 25: Gắn DLQ vào main queue.*
 
@@ -346,7 +346,7 @@ Tạo Lambda function để gửi email thông báo.
 2. Nhập function name, ví dụ `NotificationWorkerFunction`.
 3. Chọn runtime phù hợp với notification worker code.
 
-![Tạo notification function](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/createFunction.png?width=90pc&classes=shadow)
+![Tạo notification function](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/createFunction.png?width=90pc&classes=shadow)
 
 *Hình 26: Tạo Lambda Notification Worker Function.*
 
@@ -356,7 +356,7 @@ Upload notification worker code.
 2. Chọn **Upload from** và upload source package của worker.
 3. Lưu hoặc deploy phần code vừa upload.
 
-![Upload notification worker code](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/upload-file.png?width=90pc&classes=shadow)
+![Upload notification worker code](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/upload-file.png?width=90pc&classes=shadow)
 
 *Hình 27: Upload notification worker code lên Lambda.*
 
@@ -367,7 +367,7 @@ Cấu hình environment variables cho notification.
 
 ⚠️ **Warning:** Nếu SES vẫn ở sandbox mode, cả email gửi và email nhận đều phải được verify thì email mới gửi thành công.
 
-![Thêm environment](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-environment.png?width=90pc&classes=shadow)
+![Thêm environment](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-environment.png?width=90pc&classes=shadow)
 
 *Hình 28: Cấu hình environment variables cho notification Lambda.*
 
@@ -378,7 +378,7 @@ Thêm SQS trigger.
 3. Chọn main FIFO notification queue.
 4. Lưu trigger.
 
-![Thêm SQS trigger](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-trigger-SQS.png?width=90pc&classes=shadow)
+![Thêm SQS trigger](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-trigger-SQS.png?width=90pc&classes=shadow)
 
 *Hình 29: Thêm SQS làm trigger cho Lambda.*
 
@@ -392,7 +392,7 @@ Theo dõi Lambda bằng CloudWatch.
 2. Kiểm tra Lambda log groups và metrics.
 3. Tạo alarm cho Lambda errors.
 
-![CloudWatch Lambda](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-Lambda.png?width=90pc&classes=shadow)
+![CloudWatch Lambda](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-Lambda.png?width=90pc&classes=shadow)
 
 *Hình 30: Theo dõi Lambda metrics trong CloudWatch.*
 
@@ -403,7 +403,7 @@ Theo dõi SQS và cấu hình SNS notification.
 
 ⚠️ **Warning:** Nếu DLQ có visible message, nghĩa là notification flow đã lỗi sau nhiều lần retry. Cần kiểm tra DLQ trong bước validation.
 
-![CloudWatch SQS](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-SQS.png?width=90pc&classes=shadow)
+![CloudWatch SQS](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-SQS.png?width=90pc&classes=shadow)
 
 *Hình 31: Theo dõi SQS metrics trong CloudWatch.*
 
@@ -413,7 +413,7 @@ Theo dõi Lambda notification bằng CloudWatch.
 2. Tạo alarm cho Lambda notification.
 
 
-![Alarm notification](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-notification.png?width=90pc&classes=shadow)
+![Alarm notification](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-notification.png?width=90pc&classes=shadow)
 
 *Hình 32: Cấu hình alarm notification cho CloudWatch.*
 
@@ -425,7 +425,7 @@ Cấu hình SNS subscription để nhận email cảnh báo từ CloudWatch Alar
 4. Xác nhận email subscription.
 5. Đảm bảo subscription status là **Confirmed**.
 
-![Cấu hình SNS](/images/5-Workshop/5.3-Implementation/Monitoring/SNS/settingSNS.png?width=90pc&classes=shadow)
+![Cấu hình SNS](../../images/5-Workshop/5.3-Implementation/Monitoring/SNS/settingSNS.png?width=90pc&classes=shadow)
 
 *Hình 33: Cấu hình SNS subscription để nhận cảnh báo.*
 
@@ -439,7 +439,7 @@ Tạo source repository.
 2. Tạo repository.
 3. Upload hoặc push source code của dự án.
 
-![CodeCommit upload](/images/5-Workshop/5.3-Implementation/CI-CD/CodeCommit/create-upload.png?width=90pc&classes=shadow)
+![CodeCommit upload](../../images/5-Workshop/5.3-Implementation/CI-CD/CodeCommit/create-upload.png?width=90pc&classes=shadow)
 
 *Hình 34: Tạo repository và upload source code.*
 
@@ -451,7 +451,7 @@ Tạo build project.
 
 ⚠️ **Warning:** CodeBuild service role cần quyền cập nhật S3 và Lambda. Nếu thiếu quyền, build có thể chạy nhưng deploy sẽ thất bại.
 
-![Tạo CodeBuild](/images/5-Workshop/5.3-Implementation/CI-CD/CodeBuild/createCodeBuild.png?width=90pc&classes=shadow)
+![Tạo CodeBuild](../../images/5-Workshop/5.3-Implementation/CI-CD/CodeBuild/createCodeBuild.png?width=90pc&classes=shadow)
 
 *Hình 35: Tạo CodeBuild project.*
 
@@ -461,7 +461,7 @@ Tạo và chạy pipeline.
 2. Tạo pipeline với CodeCommit là Source và CodeBuild là Build.
 3. Chạy pipeline `Release change` và xác nhận build thành công.
 
-![Kiểm thử CodePipeline](/images/5-Workshop/5.3-Implementation/CI-CD/Codepipeline/createCodepipeline-test.png?width=90pc&classes=shadow)
+![Kiểm thử CodePipeline](../../images/5-Workshop/5.3-Implementation/CI-CD/Codepipeline/createCodepipeline-test.png?width=90pc&classes=shadow)
 
 *Hình 36: Cấu hình và chạy CI/CD pipeline.*
 
@@ -475,7 +475,7 @@ Tạo KMS key để mã hóa dữ liệu.
 2. Chọn **Customer managed keys**.
 3. Tạo key cho dự án.
 
-![Tạo KMS](/images/5-Workshop/5.3-Implementation/secure/KMS/createKMS.png?width=90pc&classes=shadow)
+![Tạo KMS](../../images/5-Workshop/5.3-Implementation/secure/KMS/createKMS.png?width=90pc&classes=shadow)
 
 *Hình 37: Tạo KMS key để mã hóa dữ liệu.*
 
@@ -486,7 +486,7 @@ Tạo KMS key để mã hóa dữ liệu.
 
 ⚠️ **Warning:** Không schedule deletion KMS key nếu key vẫn đang được S3, DynamoDB hoặc backup sử dụng. Dữ liệu đã mã hóa bằng key đó có thể không truy cập được.
 
-![Cấu hình KMS](/images/5-Workshop/5.3-Implementation/secure/KMS/setKMS.png?width=90pc&classes=shadow)
+![Cấu hình KMS](../../images/5-Workshop/5.3-Implementation/secure/KMS/setKMS.png?width=90pc&classes=shadow)
 
 *Hình 38: Áp dụng KMS encryption cho tài nguyên của dự án.*
 
@@ -495,20 +495,20 @@ Tạo tài nguyên AWS Backup.
 1. Mở **AWS Backup**.
 2. Tạo backup vault cho dự án.
 
-![Tạo backup vault](/images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-vault.png?width=90pc&classes=shadow)
+![Tạo backup vault](../../images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-vault.png?width=90pc&classes=shadow)
 
 *Hình 39: Tạo AWS Backup vault.*
 
 1. Tạo Backup plan.
 2. Cấu hình lịch backup và thời gian lưu trữ.
 
-![Tạo backup plan](/images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-plan.png?width=90pc&classes=shadow)
+![Tạo backup plan](../../images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-plan.png?width=90pc&classes=shadow)
 
 *Hình 40: Tạo AWS Backup plan.*
 
 1. Gắn Backup vault vào Backup plan.
 2. Lưu backup selection.
 
-![Gắn resource backup](/images/5-Workshop/5.3-Implementation/secure/Backup/connect-vault-plan.png?width=90pc&classes=shadow)
+![Gắn resource backup](../../images/5-Workshop/5.3-Implementation/secure/Backup/connect-vault-plan.png?width=90pc&classes=shadow)
 
 *Hình 41: Gắn liên kết Backup vault vào Backup plan.*

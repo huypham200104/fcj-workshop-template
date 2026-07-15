@@ -21,7 +21,7 @@ Create an S3 bucket to store the static frontend files.
 
 ⚠️ **Warning:** Do not make the frontend bucket public if you use CloudFront with Origin Access Control. Public access should be handled through CloudFront, not directly from S3.
 
-![Create frontend S3 bucket](/images/5-Workshop/5.3-Implementation/Frontend/S3/CreateS3.png?width=90pc&classes=shadow)
+![Create frontend S3 bucket](../../images/5-Workshop/5.3-Implementation/Frontend/S3/CreateS3.png?width=90pc&classes=shadow)
 
 *Figure 1: Create the S3 bucket for frontend hosting.*
 
@@ -32,7 +32,7 @@ Upload the frontend build files to the bucket.
 3. Add the frontend files and folders.
 4. Choose **Upload**.
 
-![Upload frontend files](/images/5-Workshop/5.3-Implementation/Frontend/S3/upload.png?width=90pc&classes=shadow)
+![Upload frontend files](../../images/5-Workshop/5.3-Implementation/Frontend/S3/upload.png?width=90pc&classes=shadow)
 
 *Figure 2: Upload frontend files to the S3 bucket.*
 
@@ -49,7 +49,7 @@ Create an Origin Access Control first so CloudFront can securely access the priv
 5. Keep the recommended signing behavior.
 6. Create the OAC.
 
-![Create origin access](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/create-origin-access.png?width=90pc&classes=shadow)
+![Create origin access](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/create-origin-access.png?width=90pc&classes=shadow)
 
 *Figure 3: Configure Origin Access Control for S3.*
 
@@ -60,7 +60,7 @@ Create a CloudFront distribution and connect it to the frontend S3 bucket.
 3. Select the OAC created in the previous step.
 4. Set **Default root object** to `index.html`.
 
-![Create CloudFront](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/createCloudF.png?width=90pc&classes=shadow)
+![Create CloudFront](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/createCloudF.png?width=90pc&classes=shadow)
 
 *Figure 4: Create a CloudFront distribution for the frontend.*
 
@@ -72,7 +72,7 @@ Review the main distribution settings before creating it.
 
 ⚠️ **Warning:** CloudFront changes may take several minutes to deploy. Wait until the distribution status is **Deployed** before testing the portal URL.
 
-![Choose CloudFront settings](/images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/choose%20setting.png?width=90pc&classes=shadow)
+![Choose CloudFront settings](../../images/5-Workshop/5.3-Implementation/Frontend/Cloudfront/choose%20setting.png?width=90pc&classes=shadow)
 
 *Figure 5: Review CloudFront distribution settings.*
 
@@ -89,7 +89,7 @@ Create a WAF Web ACL to protect the public CloudFront endpoint.
 
 ⚠️ **Warning:** When protecting CloudFront, the WAF scope must be **CloudFront distributions**. If you choose a regional scope, the Web ACL cannot be attached to CloudFront.
 
-![Create WAF](/images/5-Workshop/5.3-Implementation/Frontend/WAF/createWAF.png?width=90pc&classes=shadow)
+![Create WAF](../../images/5-Workshop/5.3-Implementation/Frontend/WAF/createWAF.png?width=90pc&classes=shadow)
 
 *Figure 6: Create a WAF Web ACL.*
 
@@ -99,7 +99,7 @@ Associate the Web ACL with the CloudFront distribution.
 2. Add the CloudFront distribution.
 3. Save the association.
 
-![Connect WAF to CloudFront](/images/5-Workshop/5.3-Implementation/Frontend/WAF/connect-CLF.png?width=90pc&classes=shadow)
+![Connect WAF to CloudFront](../../images/5-Workshop/5.3-Implementation/Frontend/WAF/connect-CLF.png?width=90pc&classes=shadow)
 
 *Figure 7: Associate WAF with CloudFront.*
 
@@ -115,7 +115,7 @@ Create a Cognito User Pool to manage user sign-in.
 4. Configure password policy and user verification.
 5. Create the user pool.
 
-![Create Cognito](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/createCog.png?width=90pc&classes=shadow)
+![Create Cognito](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/createCog.png?width=90pc&classes=shadow)
 
 *Figure 8: Create a Cognito User Pool.*
 
@@ -126,7 +126,7 @@ Configure the App Client for the frontend.
 3. Create or edit the App Client.
 4. Use a public client configuration for the web frontend.
 
-![Edit app client](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/edit-appclient.png?width=90pc&classes=shadow)
+![Edit app client](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/edit-appclient.png?width=90pc&classes=shadow)
 
 *Figure 9: Configure the Cognito App Client.*
 
@@ -138,7 +138,7 @@ Configure callback and sign-out URLs.
 
 ⚠️ **Warning:** The callback URL and sign-out URL must match the frontend URL exactly. A wrong URL can cause Cognito login to fail or redirect users to the wrong page.
 
-![Return URL](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/returnURL.png?width=90pc&classes=shadow)
+![Return URL](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/returnURL.png?width=90pc&classes=shadow)
 
 *Figure 10: Configure callback and sign-out URLs.*
 
@@ -147,7 +147,7 @@ Create user groups and sample users.
 1. Create groups such as `User` and `Admin`.
 2. Use these groups to separate requester and staff permissions.
 
-![Create group](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-group.png?width=90pc&classes=shadow)
+![Create group](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-group.png?width=90pc&classes=shadow)
 
 *Figure 11: Create user groups for access separation.*
 
@@ -155,7 +155,7 @@ Create user groups and sample users.
 2. Assign users to the correct group.
 3. Set or reset passwords for testing.
 
-![Create user](/images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-user.png?width=90pc&classes=shadow)
+![Create user](../../images/5-Workshop/5.3-Implementation/Frontend/Cognito/create-user.png?width=90pc&classes=shadow)
 
 *Figure 12: Create sample users for testing.*
 
@@ -174,7 +174,7 @@ Create the first DynamoDB table for helpdesk categories.
 
 ⚠️ **Warning:** Make sure each DynamoDB table name and key matches the backend code. A different name or key will cause the API to fail when reading or writing data.
 
-![Create HelpdeskCategories table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CateDB.png?width=90pc&classes=shadow)
+![Create HelpdeskCategories table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CateDB.png?width=90pc&classes=shadow)
 
 *Figure 13: Create the DynamoDB table for helpdesk categories.*
 
@@ -186,7 +186,7 @@ Create the second DynamoDB table for ticket records.
 4. Choose **On-demand** capacity mode.
 5. Create the table.
 
-![Create HelpdeskTickets table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/TicketDB.png?width=90pc&classes=shadow)
+![Create HelpdeskTickets table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/TicketDB.png?width=90pc&classes=shadow)
 
 *Figure 14: Create the DynamoDB table for helpdesk tickets.*
 
@@ -198,7 +198,7 @@ Create the third DynamoDB table for ticket comments.
 4. Choose **On-demand** capacity mode.
 5. Create the table.
 
-![Create HelpdeskComments table](/images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CommentDB.png?width=90pc&classes=shadow)
+![Create HelpdeskComments table](../../images/5-Workshop/5.3-Implementation/Backend/DynamoDB/CommentDB.png?width=90pc&classes=shadow)
 
 *Figure 15: Create the DynamoDB table for helpdesk comments.*
 
@@ -216,7 +216,7 @@ Create a private S3 bucket for ticket attachments.
 
 ⚠️ **Warning:** This bucket should stay private because attachments may contain sensitive information. Do not allow public read access.
 
-![Create attachment bucket](/images/5-Workshop/5.3-Implementation/Backend/S3-attachment/createS3-attachment.png?width=90pc&classes=shadow)
+![Create attachment bucket](../../images/5-Workshop/5.3-Implementation/Backend/S3-attachment/createS3-attachment.png?width=90pc&classes=shadow)
 
 *Figure 16: Create the S3 bucket for ticket attachments.*
 
@@ -230,7 +230,7 @@ Create the Lambda function that handles ticket business logic.
 2. Select **Author from scratch**.
 3. Enter the function name, for example `SubmitTicketFunction`.
 4. Select the runtime used by the backend.
-![Create submit function](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/createFunction.png?width=90pc&classes=shadow)
+![Create submit function](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/createFunction.png?width=90pc&classes=shadow)
 
 *Figure 17: Create Lambda.*
 
@@ -240,7 +240,7 @@ Upload the backend source code.
 2. Upload the backend package or source code.
 3. Save or deploy the function code.
 
-![Upload backend](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/uploadbackend.png?width=90pc&classes=shadow)
+![Upload backend](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/uploadbackend.png?width=90pc&classes=shadow)
 
 *Figure 18: Upload backend code to Lambda.*
 
@@ -250,7 +250,7 @@ Configure environment variables for the backend.
 2. Save the configuration.
 3. Add the SQS queue URL later after the queue is created in step 9.
 
-![Set environment](/images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/setting%20environment.png?width=90pc&classes=shadow)
+![Set environment](../../images/5-Workshop/5.3-Implementation/Backend/Lambda-SubmitFunction/setting%20environment.png?width=90pc&classes=shadow)
 
 *Figure 19: Configure Lambda environment variables.*
 
@@ -265,7 +265,7 @@ Create an HTTP API and connect it to the Ticket Handler Lambda.
 3. Select **HTTP API**.
 4. Add Lambda integration and select `SubmitTicketFunction`.
 
-![Create HTTP API](/images/5-Workshop/5.3-Implementation/Backend/API/create-HTTP-API.png?width=90pc&classes=shadow)
+![Create HTTP API](../../images/5-Workshop/5.3-Implementation/Backend/API/create-HTTP-API.png?width=90pc&classes=shadow)
 
 *Figure 20: Create the HTTP API.*
 
@@ -278,7 +278,7 @@ Add routes for ticket operations.
 
 ⚠️ **Warning:** Do not leave ticket routes unauthenticated. Attach the Cognito JWT authorizer to routes that create, read, or update ticket data.
 
-![Add API route](/images/5-Workshop/5.3-Implementation/Backend/API/add-route-API.png?width=90pc&classes=shadow)
+![Add API route](../../images/5-Workshop/5.3-Implementation/Backend/API/add-route-API.png?width=90pc&classes=shadow)
 
 *Figure 21: Add API routes for ticket operations.*
 
@@ -288,7 +288,7 @@ Confirm the Lambda trigger from API Gateway.
 2. Add API Gateway so it appears in the trigger section.
 3. Save the API endpoint for frontend configuration.
 
-![Add Lambda trigger](/images/5-Workshop/5.3-Implementation/Backend/API/add-triggerAPI-forSubFunction.png?width=90pc&classes=shadow)
+![Add Lambda trigger](../../images/5-Workshop/5.3-Implementation/Backend/API/add-triggerAPI-forSubFunction.png?width=90pc&classes=shadow)
 
 *Figure 22: Connect API Gateway to Lambda.*
 
@@ -306,7 +306,7 @@ Create the Dead Letter Queue first.
 
 ⚠️ **Warning:** FIFO queue names must end with `.fifo`. Create the DLQ before configuring it on the main queue.
 
-![Create DLQ](/images/5-Workshop/5.3-Implementation/Backend/SQS/DLQ/createDLQ.png?width=90pc&classes=shadow)
+![Create DLQ](../../images/5-Workshop/5.3-Implementation/Backend/SQS/DLQ/createDLQ.png?width=90pc&classes=shadow)
 
 *Figure 23: Create the dead-letter queue.*
 
@@ -317,7 +317,7 @@ Create the main FIFO notification queue.
 3. Enter the main queue name, for example `helpdesk-notification-queue.fifo`.
 4. Enable **Content-based deduplication** if suitable.
 
-![Create SQS queue](/images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/createSQS-queue.png?width=90pc&classes=shadow)
+![Create SQS queue](../../images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/createSQS-queue.png?width=90pc&classes=shadow)
 
 *Figure 24: Create the main FIFO notification queue.*
 
@@ -331,7 +331,7 @@ Attach the DLQ to the main queue.
 
 ⚠️ **Warning:** If the SQS queue URL is not updated in the Ticket Handler Lambda environment variables, ticket creation may succeed but no notification message will be queued.
 
-![Add DLQ to queue](/images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/add-DLQ.png?width=90pc&classes=shadow)
+![Add DLQ to queue](../../images/5-Workshop/5.3-Implementation/Backend/SQS/Queue/add-DLQ.png?width=90pc&classes=shadow)
 
 *Figure 25: Attach the DLQ to the main queue.*
 
@@ -346,7 +346,7 @@ Create the Lambda function that sends email notifications.
 3. Select the runtime used by the notification worker code.
 4. Select the prepared Lambda execution role.
 
-![Create notification function](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/createFunction.png?width=90pc&classes=shadow)
+![Create notification function](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/createFunction.png?width=90pc&classes=shadow)
 
 *Figure 26: Create the Notification Worker Lambda.*
 
@@ -356,7 +356,7 @@ Upload the notification worker code.
 2. Choose **Upload from** and upload the worker source package.
 3. Save or deploy the updated code.
 
-![Upload notification worker code](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/upload-file.png?width=90pc&classes=shadow)
+![Upload notification worker code](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/upload-file.png?width=90pc&classes=shadow)
 
 *Figure 27: Upload the notification worker code to Lambda.*
 
@@ -367,7 +367,7 @@ Configure notification environment variables.
 
 ⚠️ **Warning:** If SES is still in sandbox mode, both sender and recipient email addresses must be verified before email delivery can succeed.
 
-![Add notification environment](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-environment.png?width=90pc&classes=shadow)
+![Add notification environment](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-environment.png?width=90pc&classes=shadow)
 
 *Figure 28: Configure notification environment variables.*
 
@@ -378,7 +378,7 @@ Add the SQS trigger.
 3. Choose the main FIFO notification queue.
 4. Save the trigger.
 
-![Add SQS trigger](/images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-trigger-SQS.png?width=90pc&classes=shadow)
+![Add SQS trigger](../../images/5-Workshop/5.3-Implementation/Notification/NotificationFunction/add-trigger-SQS.png?width=90pc&classes=shadow)
 
 *Figure 29: Add SQS as the Lambda trigger.*
 
@@ -392,7 +392,7 @@ Monitor Lambda functions with CloudWatch.
 2. Check Lambda log groups and metrics.
 3. Create alarms for Lambda errors.
 
-![CloudWatch Lambda](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-Lambda.png?width=90pc&classes=shadow)
+![CloudWatch Lambda](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-Lambda.png?width=90pc&classes=shadow)
 
 *Figure 30: Monitor Lambda metrics in CloudWatch.*
 
@@ -403,7 +403,7 @@ Monitor SQS and configure SNS notification.
 
 ⚠️ **Warning:** A visible message in the DLQ means the notification flow failed after retries. Always check DLQ messages during validation.
 
-![CloudWatch SQS](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-SQS.png?width=90pc&classes=shadow)
+![CloudWatch SQS](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-SQS.png?width=90pc&classes=shadow)
 
 *Figure 31: Monitor SQS metrics in CloudWatch.*
 
@@ -412,7 +412,7 @@ Monitor Lambda notification with CloudWatch.
 1. Check the Lambda notification log groups and metrics.
 2. Create an alarm for Lambda notification.
 
-![Alarm notification](/images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-notification.png?width=90pc&classes=shadow)
+![Alarm notification](../../images/5-Workshop/5.3-Implementation/Monitoring/CloudWatch/CloudWatch-notification.png?width=90pc&classes=shadow)
 
 *Figure 32: Configure alarm notification for CloudWatch.*
 
@@ -424,7 +424,7 @@ Configure the SNS subscription used to receive alarm emails.
 4. Confirm the email subscription.
 5. Confirm that the subscription status is **Confirmed**.
 
-![SNS settings](/images/5-Workshop/5.3-Implementation/Monitoring/SNS/settingSNS.png?width=90pc&classes=shadow)
+![SNS settings](../../images/5-Workshop/5.3-Implementation/Monitoring/SNS/settingSNS.png?width=90pc&classes=shadow)
 
 *Figure 33: Configure SNS subscription for alerts.*
 
@@ -438,7 +438,7 @@ Create the source repository.
 2. Create a repository.
 3. Upload or push the project source code.
 
-![CodeCommit upload](/images/5-Workshop/5.3-Implementation/CI-CD/CodeCommit/create-upload.png?width=90pc&classes=shadow)
+![CodeCommit upload](../../images/5-Workshop/5.3-Implementation/CI-CD/CodeCommit/create-upload.png?width=90pc&classes=shadow)
 
 *Figure 34: Create repository and upload source code.*
 
@@ -450,7 +450,7 @@ Create the build project.
 
 ⚠️ **Warning:** Ensure the CodeBuild service role has permission to update S3 and Lambda. Otherwise, the build may succeed partially but deployment will fail.
 
-![Create CodeBuild](/images/5-Workshop/5.3-Implementation/CI-CD/CodeBuild/createCodeBuild.png?width=90pc&classes=shadow)
+![Create CodeBuild](../../images/5-Workshop/5.3-Implementation/CI-CD/CodeBuild/createCodeBuild.png?width=90pc&classes=shadow)
 
 *Figure 35: Create the CodeBuild project.*
 
@@ -460,7 +460,7 @@ Create and run the pipeline.
 2. Create a pipeline with CodeCommit as Source and CodeBuild as Build.
 3. Run the pipeline with `Release change` and confirm the build succeeds.
 
-![CodePipeline test](/images/5-Workshop/5.3-Implementation/CI-CD/Codepipeline/createCodepipeline-test.png?width=90pc&classes=shadow)
+![CodePipeline test](../../images/5-Workshop/5.3-Implementation/CI-CD/Codepipeline/createCodepipeline-test.png?width=90pc&classes=shadow)
 
 *Figure 36: Configure and run the CI/CD pipeline.*
 
@@ -474,7 +474,7 @@ Create a KMS key for encryption.
 2. Choose **Customer managed keys**.
 3. Create a key for the project.
 
-![Create KMS](/images/5-Workshop/5.3-Implementation/secure/KMS/createKMS.png?width=90pc&classes=shadow)
+![Create KMS](../../images/5-Workshop/5.3-Implementation/secure/KMS/createKMS.png?width=90pc&classes=shadow)
 
 *Figure 37: Create a KMS key for encryption.*
 
@@ -485,7 +485,7 @@ Apply KMS encryption to project resources.
 
 ⚠️ **Warning:** Do not schedule deletion for a KMS key that is still used by S3, DynamoDB, or backups. Data encrypted with that key may become inaccessible.
 
-![Set KMS](/images/5-Workshop/5.3-Implementation/secure/KMS/setKMS.png?width=90pc&classes=shadow)
+![Set KMS](../../images/5-Workshop/5.3-Implementation/secure/KMS/setKMS.png?width=90pc&classes=shadow)
 
 *Figure 38: Apply KMS encryption to project resources.*
 
@@ -494,20 +494,20 @@ Create AWS Backup resources.
 1. Open **AWS Backup**.
 2. Create a backup vault for the project.
 
-![Create backup vault](/images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-vault.png?width=90pc&classes=shadow)
+![Create backup vault](../../images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-vault.png?width=90pc&classes=shadow)
 
 *Figure 39: Create the AWS Backup vault.*
 
 1. Create a backup plan.
 2. Configure schedule and retention.
 
-![Create backup plan](/images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-plan.png?width=90pc&classes=shadow)
+![Create backup plan](../../images/5-Workshop/5.3-Implementation/secure/Backup/createBackup-plan.png?width=90pc&classes=shadow)
 
 *Figure 40: Create the AWS Backup plan.*
 
 1. Assign the backup vault to the backup plan.
 2. Save the backup selection.
 
-![Connect vault plan](/images/5-Workshop/5.3-Implementation/secure/Backup/connect-vault-plan.png?width=90pc&classes=shadow)
+![Connect vault plan](../../images/5-Workshop/5.3-Implementation/secure/Backup/connect-vault-plan.png?width=90pc&classes=shadow)
 
 *Figure 41: Link the Backup vault to the Backup plan.*

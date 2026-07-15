@@ -118,6 +118,6 @@ Attending the **“FCAJ Community Day”** workshop was a very valuable experien
 - **Be brave to pivot:** When faced with deadline pressure or technical dead-ends, you need to decide to cut features or change direction to deliver the core MVP on time.
 
 #### Some event photos
-![Team](/images/team.png)
+![Team](../../images/team.png)
 
 > Overall, the event not only provided technical knowledge but also helped me change the way I think about application design, system modernization, and more effective collaboration across teams.

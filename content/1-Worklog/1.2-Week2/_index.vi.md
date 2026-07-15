@@ -35,13 +35,13 @@ pre: " <b> 1.2. </b> "
 * Cấu hình thành công Security Groups và Key Pairs để kiểm soát truy cập vào EC2, chỉ cho phép các kết nối hợp lệ theo đúng yêu cầu bảo mật.
 
 * Thực hiện thành công cơ chế Bastion Host để kết nối từ môi trường public vào máy private, đồng thời sử dụng `scp` và `chmod 400` để đảm bảo quá trình truyền và bảo vệ tệp tin an toàn.
-  ![Bastion Host và NAT Gateway Access](/images/1-Worklog/week2-bastion-nat-gateway-access.jpg)
+  ![Bastion Host và NAT Gateway Access](../../images/1-Worklog/week2-bastion-nat-gateway-access.jpg)
 
 * Triển khai NAT Gateway và cấu hình Route Table chính xác cho Private Subnet, giúp máy private có thể truy cập Internet một chiều để cập nhật và cài đặt gói cần thiết.
 
 * Thiết lập và kiểm tra EC2 Instance Connect Endpoint (EICE), cho phép đăng nhập trực tiếp vào máy private trên trình duyệt mà không cần public IP hay máy trung gian.
-  ![EICE Endpoint được tạo thành công](/images/1-Worklog/week2-eice-endpoint-created-available.jpg)
-  ![Kết nối thành công vào Private Instance qua EICE](/images/1-Worklog/week2-eice-private-ec2-connection.jpg)
+  ![EICE Endpoint được tạo thành công](../../images/1-Worklog/week2-eice-endpoint-created-available.jpg)
+  ![Kết nối thành công vào Private Instance qua EICE](../../images/1-Worklog/week2-eice-private-ec2-connection.jpg)
 
 * Sử dụng Reachability Analyzer để xác định nhanh các vấn đề liên quan đến Security Group hoặc Route Table, từ đó rút ngắn thời gian troubleshooting.
 

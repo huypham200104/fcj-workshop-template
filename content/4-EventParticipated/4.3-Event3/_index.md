@@ -56,7 +56,7 @@ Participating in the **AWS Certification Quiz** was a fun and exciting experienc
 
 Below is a photo captured while attending the event:
 
-![Photo from Event 3](/images/4-Event/event3.png)
+![Photo from Event 3](../../images/4-Event/event3.png)
 
 ---
 
